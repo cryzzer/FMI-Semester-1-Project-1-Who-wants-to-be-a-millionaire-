@@ -1,4 +1,5 @@
-easy. Something heard but not paid attention to is often said to go "in one ear and out" what?
+ID:01-01001
+1. Something heard but not paid attention to is often said to go "in one ear and out" what?
 A) the door
 B) your nose
 C) your navel
@@ -6,7 +7,8 @@ D) the other
 
 D
 
-easy. According to a popular phrase, one who has been cheated out of money has been "taken to" where?
+ID:01-01002
+1. According to a popular phrase, one who has been cheated out of money has been "taken to" where?
 A) Las Vegas
 B) The cleaners
 C) The ballpark
@@ -14,7 +16,8 @@ D) The car wash
 
 B
 
-easy. What name is given to a dishonest or careless workman?
+ID:02-01001
+2. What name is given to a dishonest or careless workman?
 A) Cowbell
 B) CowBoy
 C) CowHerd
@@ -22,7 +25,8 @@ D) Cowpat
 
 B
 
-easy. According to a well-known proverb, what do "many hands make"?
+ID:02-01002
+2. According to a well-known proverb, what do "many hands make"?
 A) Crowded mittens
 B) Loud applause
 C) Light work
@@ -30,7 +34,8 @@ D) Many fingers
 
 C
 
-easy. A cranky person is said to have gotten up "on the wrong side of the" what?
+ID:03-01001
+3. A cranky person is said to have gotten up "on the wrong side of the" what?
 A) Barn
 B) Bed
 C) Law
@@ -38,7 +43,8 @@ D) Fence
 
 B
 
-easy. Though it doesn't require clean bathrooms, federal policystates that there should be a place along the highway to do what atrea about every half-hour of driving ?
+ID:03-01002
+3. Though it doesn't require clean bathrooms, federal policystates that there should be a place along the highway to do what atrea about every half-hour of driving ?
 A) Stop and rest
 B) Dig for treasure
 C) Renew your marriage vows
@@ -46,7 +52,8 @@ D) Get rid of a body
 
 A
 
-easy. Though it can certainly expand, on avarage, your stomach is roughly the size of your what ?
+ID:04-01001
+4. Though it can certainly expand, on avarage, your stomach is roughly the size of your what ?
 A) Fist
 B) Eye
 C) Head
@@ -54,13 +61,17 @@ D) Ear
 
 A
 
-easy. Flipping the script, what 1982 video game sequel puts you in control of the original antagonist's son, who has to rescue his primate father from a now-villainous Mario?
+ID:04-01002
+4. Flipping the script, what 1982 video game sequel puts you in control of the original antagonist's son, who has to rescue his primate father from a now-villainous Mario?
 A) Clash of Clans Jr.
 B) Donkey Kong Jr.
 C) Angty Birds Jr.
 D) Temple run Jr.
 
-medium. A red envelope, stuffed with an even numbered amount of money, is a traditional gift given during witch of the following?
+B
+
+ID:05-01001
+5. A red envelope, stuffed with an even numbered amount of money, is a traditional gift given during witch of the following?
 A) Passover
 B) Chinese New Year
 C) Lent
@@ -68,7 +79,8 @@ D) Kwanzaa
 
 B
 
-medium. While times have changed, up until 1990 you could legally be excluded from immigrating to U.S if you were what ?
+ID:05-01002
+5. While times have changed, up until 1990 you could legally be excluded from immigrating to U.S if you were what ?
 A) An atheist
 B) An unwed parent
 C) In an interracial Marriage
@@ -76,7 +88,8 @@ D) Gay
 
 D
 
-medium. Using the first letters of three consecutive planets in the Solar System, you can spell which of these words?
+ID:06-01001
+6. Using the first letters of three consecutive planets in the Solar System, you can spell which of these words?
 A) Men
 B) Sun
 C) Mum
@@ -84,7 +97,8 @@ D) Sue
 
 B
 
-medium. Registering near the middle of the pH scale, which of these substances has a pH level of about 7?
+ID:07-01002
+6. Registering near the middle of the pH scale, which of these substances has a pH level of about 7?
 A) Hydrochloric acid
 B) Lemon juice
 C) Baking soda
@@ -92,7 +106,8 @@ D) Water
 
 D
 
-medium. Which of the following '90s hit songs was performed by a female artist whose first and last names began with the same letter?
+ID:07-01001
+7. Which of the following '90s hit songs was performed by a female artist whose first and last names began with the same letter?
 A) You Oughta Know
 B) Stay (I Missed You)
 C) Nothing Compares 2 U
@@ -100,7 +115,8 @@ D) ...Baby One More Time
 
 B
 
-medium. What website presents a Diamond Creator Award -- shaped like a "Play" button -- to users who have at least 10 million subscribers?
+ID:07-01002
+7. What website presents a Diamond Creator Award -- shaped like a "Play" button -- to users who have at least 10 million subscribers?
 A) Yelp
 B) eBay
 C) Linkedln
@@ -108,7 +124,8 @@ D) Youtube
 
 D
 
-hard. By filling in the blank with two different letters, with which of these choices can you spell two different Asian languages?
+ID:08-01001
+8. By filling in the blank with two different letters, with which of these choices can you spell two different Asian languages?
 A) K O _ E A N
 B) J A _ A N E S E
 C) A R A _ I C
@@ -116,7 +133,8 @@ D) H _ N D I
 
 B
 
-hard. Similar to the way you can split Missoury into 3 word("miss", "our" and "I"), you can split a New England state's one-word, 11-letter name into 3 words, that can be used as what?
+ID:08-01002
+8. Similar to the way you can split Missoury into 3 word("miss", "our" and "I"), you can split a New England state's one-word, 11-letter name into 3 words, that can be used as what?
 A) Verb, verb, noun
 B) Adverb, verb, pronoun
 C) Noun, verb, adverb
@@ -124,7 +142,8 @@ D) Verb, pronoun, verb
 
 D
 
-hard. In Greek mythology, 5 of the 12 gods and goddesses who live on Mount Olympus have names that begin with "A", including Ares, Artemis, and all but whom?
+ID:09-01001
+9. In Greek mythology, 5 of the 12 gods and goddesses who live on Mount Olympus have names that begin with "A", including Ares, Artemis, and all but whom?
 A) Athena
 B) Apollo
 C) Adonis
@@ -132,7 +151,8 @@ D) Aphrodite
 
 C
 
-hard. What's the next letter in the following well-known sequence, where each letter represents the first letter of a word: O, T, T, F, F, S, S, E, N...?
+ID:09-01002
+9. What's the next letter in the following well-known sequence, where each letter represents the first letter of a word: O, T, T, F, F, S, S, E, N...?
 A) R
 B) F
 C) M
@@ -140,7 +160,8 @@ D) T
 
 D
 
-hard. The Earth is approximately how many miles away from the Sun?
+ID:10-01001
+10. The Earth is approximately how many miles away from the Sun?
 A) 9.3 million
 B) 39 million
 C) 93 million
@@ -148,13 +169,11 @@ D) 193 million
 
 C
 
-hard. Which insect shorted out an early supercomputer and inspired the term "computer bug"?
+ID:10-01002
+10. Which insect shorted out an early supercomputer and inspired the term "computer bug"?
 A) Moth
 B) Fly
 C) Roach
 D) Japanese beetle
 
 A
-
-
-
