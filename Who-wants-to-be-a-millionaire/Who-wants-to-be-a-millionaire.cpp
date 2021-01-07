@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <time.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -20,6 +22,17 @@ void IDLookingGenerator(int level, char questionID [6]) {//creating the ID that 
 		questionID[4] = numberOfID;
 	}
 }
+
+void CopyStr(char originalString[], char copiedVersion[], int sizeCopiedArray, char stopCopyingAfter) {
+	for (int i = 0; i < sizeCopiedArray; i++) {
+		copiedVersion[i] = originalString[i];
+		//cout << "CV: " << copiedVersion[i] << "   OV: " << originalString[i] << endl;
+		if (copiedVersion[i] == stopCopyingAfter) {
+			break;
+		}
+	}
+}
+
 void Border() {
 	cout << endl;
 	cout << setw(3);
@@ -44,9 +57,10 @@ void ValidInput(char& number, char string[], const int sizeOfString) {
 
 void SearchHowManyPossibleQuestions(char nameOfFile [], int& timesQuestionExists, char questionID[]) {
 	ifstream questionFile(nameOfFile);  //opening file
-	char printingString[6] = {'\0'};    //creating an char array, that will compare later
-	char gettingLine[1000];
-	while (questionFile.getline(gettingLine, 1000)) {//getting the whole line
+	char printingString[6] = {'\0'}; //creating an char array, that will compare later
+	const int sizeOfRow = 1000;
+	char gettingLine[sizeOfRow];
+	while (questionFile.getline(gettingLine, sizeOfRow)) {//getting the whole line
 		for (int i = 0; i < 6; i++) {
 			printingString[i] = gettingLine[i];//rewriting the first 5 simbols to a new char array
 		}
@@ -65,8 +79,88 @@ void SearchHowManyPossibleQuestions(char nameOfFile [], int& timesQuestionExists
 	}
 	questionFile.close();//closing file
 }
+void PrintQuestionAndAnswers(char gettingLine[], const int sizeOfRow, ifstream questionFile(), char nameOfFile[]) {
+
+}
+void PrintSelectedQuestion(char nameOfFile[], int numberOfSelectedQuestion, char questionID[]) {
+	const int sizeOfRow = 1000;
+	
+	ifstream questionFile(nameOfFile);  //opening file
+	char printingString[6] = { '\0' };    //creating an char array, that will compare later
+	char gettingLine[sizeOfRow];
+	
+	int currentNumberOfQuestion = 0;
+
+	char question[sizeOfRow] = {'\0'};
+	char option1[sizeOfRow / 10] = { '\0' };
+	char option2[sizeOfRow / 10] = { '\0' };
+	char option3[sizeOfRow / 10] = { '\0' };
+	char option4[sizeOfRow / 10] = { '\0' };
+	char correctAnswer;
+	char inputAnswer;
+
+
+	while (questionFile.getline(gettingLine, sizeOfRow)) {//getting the whole line
+		for (int i = 0; i < 6; i++) {
+			printingString[i] = gettingLine[i];//rewriting the first 5 simbols to a new char array
+		}
+		printingString[5] = '\0';//adding manual terminating zero to the last element
+
+		bool isSame = true;//creating a flag that will signal if the arrays are equal(the IDs)
+	
+		for (int i = 0; i < 5; i++) {
+			if (printingString[i] != questionID[i]) {
+				isSame = false;
+				break;
+			}
+		}
+		if (isSame) {
+			currentNumberOfQuestion++;//giving the integer +1 to its value
+		}
+		if (currentNumberOfQuestion == numberOfSelectedQuestion) {
+			
+			questionFile.getline(gettingLine, sizeOfRow, '\n');
+			//cout << gettingLine << endl;
+			CopyStr(gettingLine, question, sizeOfRow, '?');
+			cout << question << endl;
+
+			questionFile.getline(gettingLine, sizeOfRow, '\n');
+			//cout << gettingLine << endl;
+			CopyStr(gettingLine, option1, sizeOfRow, '\n');
+			cout << option1 << endl;
+
+			questionFile.getline(gettingLine, sizeOfRow, '\n');
+			//cout << gettingLine << endl;
+			CopyStr(gettingLine, option2, sizeOfRow, '\n');
+			cout << option2 << endl;
+
+			questionFile.getline(gettingLine, sizeOfRow, '\n');
+			//cout << gettingLine << endl;
+			CopyStr(gettingLine, option3, sizeOfRow, '\n');
+			cout << option3 << endl;
+
+
+			questionFile.getline(gettingLine, sizeOfRow, '\n');
+			//cout << gettingLine << endl;
+			CopyStr(gettingLine, option4, sizeOfRow, '\n');
+			cout << option4 << endl;
+
+			questionFile.getline(gettingLine, sizeOfRow, '\n');
+			questionFile.getline(gettingLine, sizeOfRow, '\n');
+			//cout << gettingLine << endl;
+			correctAnswer = gettingLine[0];
+
+			cout << question << endl;
+
+			questionFile.close();
+		}
+	}
+
+
+}
 
 void StartNewGame(char nameOfFile []) {
+	srand(time(nullptr));
 	int level = 1;
 
 	char questionID[6] = { 'I','D', ':', '\0', '\0' };
@@ -77,6 +171,8 @@ void StartNewGame(char nameOfFile []) {
 
 		int timesQuestionExists = 0;
 		SearchHowManyPossibleQuestions(nameOfFile, timesQuestionExists,questionID);
+		int numberOfSelectedQuestion = rand() % timesQuestionExists + 1;
+		PrintSelectedQuestion(nameOfFile, numberOfSelectedQuestion, questionID);
 
 
 	//}
