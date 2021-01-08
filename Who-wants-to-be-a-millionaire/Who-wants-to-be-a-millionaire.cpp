@@ -9,7 +9,7 @@ using namespace std;
 char LevelFromIntToChar(int level) {//turning level number into number of ID    example: ID:01
 	return '0' + level;
 }
-void IDLookingGenerator(int level, char questionID [6]) {//creating the ID that the program will look for
+void IDLookingGenerator(int level, char questionID[6]) {//creating the ID that the program will look for
 	if (level < 10) {
 		char numberOfID = LevelFromIntToChar(level);
 		questionID[3] = '0';//manual adding 0
@@ -24,29 +24,37 @@ void IDLookingGenerator(int level, char questionID [6]) {//creating the ID that 
 }
 
 void CopyStr(char originalString[], char copiedVersion[], int sizeCopiedArray, char stopCopyingAfter) {
-	for (int i = 0; i < sizeCopiedArray; i++) {
+	int i = 0;
+	for (i = 0; originalString[i] != '\0'; i++) {//coppying the text, while the loop meets a terminating zero
 		copiedVersion[i] = originalString[i];
-		//cout << "CV: " << copiedVersion[i] << "   OV: " << originalString[i] << endl;
-		if (copiedVersion[i] == stopCopyingAfter) {
-			break;
-		}
 	}
+	copiedVersion[i] = '\0';//than we add manual terminating zero after the last symbol
+}
+
+int StrLength(char str[]) {
+	int size = 0;
+	while (str[size] != '\0') {//getting size of string
+		size++;
+	}
+	return size;
 }
 
 void Border() {
 	cout << endl;
 	cout << setw(3);
-	for (int i = 0; i < 116;i++) {//printing border
+	const int sizeOfConsoleRow = 120;
+	for (int i = 0; i < (sizeOfConsoleRow - 4);i++) {//printing border
 		cout << '=';
 	}
 	cout << endl;
 }
+
 void ValidInput(char& number, char string[], const int sizeOfString) {
 	bool validChoice = false;
 	do {
 		cin >> number;
-		for (int i = 0; i < sizeOfString;i++) {//if the input does not match with any of the remaining options, continue the loop untill a viable
-			if (number != string[i]) {         // option is inputed
+		for (int i = 0; i < sizeOfString;i++) {//if the input does not match with any of the remaining options, 
+			if (number != string[i]) {         //continue the loop untill a viable option is inputed
 				continue;
 			}
 			validChoice = true;//flag for stopping the function
@@ -55,9 +63,9 @@ void ValidInput(char& number, char string[], const int sizeOfString) {
 	} while (!validChoice);//looping while a valid choice isn't entered
 }
 
-void SearchHowManyPossibleQuestions(char nameOfFile [], int& timesQuestionExists, char questionID[]) {
+void SearchHowManyPossibleQuestions(char nameOfFile[], int& timesQuestionExists, char questionID[]) {
 	ifstream questionFile(nameOfFile);  //opening file
-	char printingString[6] = {'\0'}; //creating an char array, that will compare later
+	char printingString[6] = { '\0' }; //creating an char array, that will compare later
 	const int sizeOfRow = 1000;
 	char gettingLine[sizeOfRow];
 	while (questionFile.getline(gettingLine, sizeOfRow)) {//getting the whole line
@@ -79,26 +87,73 @@ void SearchHowManyPossibleQuestions(char nameOfFile [], int& timesQuestionExists
 	}
 	questionFile.close();//closing file
 }
-void PrintQuestionAndAnswers(char gettingLine[], const int sizeOfRow, ifstream questionFile(), char nameOfFile[]) {
 
+void PrintQuestionAndAnswers(char question[], char option1[], char option2[], char option3[], char option4[],
+	char correctAnswer, char possibleAnswers[], const int sizeOfAnswers, int& level, bool& gameLost) {
+
+	const int sizeOfConsoleRow = 120;//this will be the default size of the row of the console
+	int questionSize = StrLength(question);//finding the size of the question
+
+	//if the size is more than 116(which is where the double lines end), this part of the code finds where is the last position,
+	//where there isn't a latin letter, and starts copying the rest of the elements from his right side 2 steps over,
+	//then rewrites the found position to a new line, and the second two elements after him to 2 space bars
+	if (questionSize > (sizeOfConsoleRow - 4)) {
+		int startElementToCopy = sizeOfConsoleRow - 4;
+		for (startElementToCopy = sizeOfConsoleRow - 4; ((question[startElementToCopy] <= 'Z' && question[startElementToCopy] >= 'A') ||
+			(question[startElementToCopy] <= 'z' && question[startElementToCopy] >= 'a')); startElementToCopy--) {
+		}
+		for (int currentPosOfElement = questionSize; currentPosOfElement > startElementToCopy; currentPosOfElement--) {
+			question[currentPosOfElement + 2] = question[currentPosOfElement];
+		}
+		question[startElementToCopy] = '\n';
+		question[startElementToCopy + 1] = ' ';
+		question[startElementToCopy + 2] = ' ';
+	}
+
+	int option1Size = StrLength(option1);//using this to center the options
+	int option3Size = StrLength(option3);
+
+	char inputAnswer;
+	do {//if an incorrect choice is being validated, it resets the page, giving the user the ability to enter again, untill a valid choice is inputed
+		cout << endl << endl << endl << endl << endl << endl;
+		Border();
+		cout << "\n  " << question << endl << endl;
+		cout << "  " << option1;
+		cout << right << setw(50 - option1Size - 1) << option2 << endl;
+		cout << "  " << option3;
+		cout << right << setw(50 - option3Size - 1) << option4 << endl;//not working properly
+		Border();
+
+		
+		cout << "  Your answer (" << possibleAnswers[0] << ", " << possibleAnswers[1] << ", " << possibleAnswers[2] << " or " << possibleAnswers[3] << "): ";
+		cin >> inputAnswer;
+		system("cls");//clearing console
+	} while (inputAnswer!=possibleAnswers[0] && inputAnswer != possibleAnswers[1] && inputAnswer != possibleAnswers[2] && inputAnswer != possibleAnswers[3]);
+
+	//ValidInput(inputAnswer, possibleAnswers, sizeOfAnswers);
+	if (inputAnswer == correctAnswer) {
+	}
+	else {
+		gameLost = true;
+	}
 }
-void PrintSelectedQuestion(char nameOfFile[], int numberOfSelectedQuestion, char questionID[]) {
-	const int sizeOfRow = 1000;
-	
+void PrintSelectedQuestion(char nameOfFile[], int numberOfSelectedQuestion, char questionID[], int& level, bool& gameLost) {
+	const int sizeOfRow = 1000;//row equals line
+
 	ifstream questionFile(nameOfFile);  //opening file
-	char printingString[6] = { '\0' };    //creating an char array, that will compare later
+
+	//the array will have exactly 5 simbols inside, which is the number of the ID  example: "ID:01"+terminating zero
+	char printingString[6] = { '\0' };    //creating an char array, that will compare later;
 	char gettingLine[sizeOfRow];
-	
+
 	int currentNumberOfQuestion = 0;
 
-	char question[sizeOfRow] = {'\0'};
+	char question[sizeOfRow] = { '\0' };
 	char option1[sizeOfRow / 10] = { '\0' };
 	char option2[sizeOfRow / 10] = { '\0' };
 	char option3[sizeOfRow / 10] = { '\0' };
 	char option4[sizeOfRow / 10] = { '\0' };
-	char correctAnswer;
-	char inputAnswer;
-
+	char correctAnswer = { '\0' };
 
 	while (questionFile.getline(gettingLine, sizeOfRow)) {//getting the whole line
 		for (int i = 0; i < 6; i++) {
@@ -107,7 +162,7 @@ void PrintSelectedQuestion(char nameOfFile[], int numberOfSelectedQuestion, char
 		printingString[5] = '\0';//adding manual terminating zero to the last element
 
 		bool isSame = true;//creating a flag that will signal if the arrays are equal(the IDs)
-	
+
 		for (int i = 0; i < 5; i++) {
 			if (printingString[i] != questionID[i]) {
 				isSame = false;
@@ -117,67 +172,91 @@ void PrintSelectedQuestion(char nameOfFile[], int numberOfSelectedQuestion, char
 		if (isSame) {
 			currentNumberOfQuestion++;//giving the integer +1 to its value
 		}
+
+		//after fining the desired question,begin a manual copying of 
+		//the question + possible answers + correct answer
 		if (currentNumberOfQuestion == numberOfSelectedQuestion) {
-			
-			questionFile.getline(gettingLine, sizeOfRow, '\n');
-			//cout << gettingLine << endl;
-			CopyStr(gettingLine, question, sizeOfRow, '?');
-			cout << question << endl;
+
+			questionFile.getline(gettingLine, sizeOfRow, '\n');//gettig question
+			CopyStr(gettingLine, question, sizeOfRow, '?');//coppying question
+
+			questionFile.getline(gettingLine, sizeOfRow, '\n');//getting option 1
+			CopyStr(gettingLine, option1, sizeOfRow, '\n');//coppying option 1, same goes for the other 3 options
 
 			questionFile.getline(gettingLine, sizeOfRow, '\n');
-			//cout << gettingLine << endl;
-			CopyStr(gettingLine, option1, sizeOfRow, '\n');
-			cout << option1 << endl;
-
-			questionFile.getline(gettingLine, sizeOfRow, '\n');
-			//cout << gettingLine << endl;
 			CopyStr(gettingLine, option2, sizeOfRow, '\n');
-			cout << option2 << endl;
 
 			questionFile.getline(gettingLine, sizeOfRow, '\n');
-			//cout << gettingLine << endl;
 			CopyStr(gettingLine, option3, sizeOfRow, '\n');
-			cout << option3 << endl;
 
 
 			questionFile.getline(gettingLine, sizeOfRow, '\n');
-			//cout << gettingLine << endl;
 			CopyStr(gettingLine, option4, sizeOfRow, '\n');
-			cout << option4 << endl;
 
+			//since there is a new line between the 4th option and the correct answer, skip 1 line of the text
 			questionFile.getline(gettingLine, sizeOfRow, '\n');
 			questionFile.getline(gettingLine, sizeOfRow, '\n');
-			//cout << gettingLine << endl;
-			correctAnswer = gettingLine[0];
-
-			cout << question << endl;
+			correctAnswer = gettingLine[0];//copying the correct answer
 
 			questionFile.close();
 		}
 	}
-
-
+	int sizeOfAnswers = 5;
+	char possibleAnswers[5] = { 'A', 'B', 'C', 'D' };//adding valid choices to be compared with the input
+	PrintQuestionAndAnswers(question, option1, option2, option3, option4, correctAnswer, possibleAnswers, sizeOfAnswers, level, gameLost);
+}
+void PrintPassedQuestion(int possibleEarnings[], int& level) {//printing won amount of money for round
+	cout << endl << endl << endl << endl << endl << endl;
+	Border();
+	cout << endl;
+	cout << "  Congratulations, you won " << possibleEarnings[level - 1] << '$' << endl;
+	Border();
+}
+void PrintGameOver() {//printing game over
+	cout << endl << endl << endl << endl << endl << endl;
+	Border();
+	cout << endl;
+	cout << "GAME OVER";
+	Border();
 }
 
-void StartNewGame(char nameOfFile []) {
-	srand(time(nullptr));
-	int level = 1;
+void StartNewGame(char nameOfFile[]) {
+	system("cls");//clearing console
+	srand(time(nullptr));//setting the seed, from which the randomiser will randomise
+	int level = 1;//levels(questions) from 1 to 15 (currently working with questions to 10)
 
-	char questionID[6] = { 'I','D', ':', '\0', '\0' };
-	IDLookingGenerator(level, questionID);
+	char questionID[6] = { 'I','D', ':', '\0', '\0' };//ID validation prototype
 
-	bool gameLost = false;
-	//while (true) {// level > 10 || gameLost == true
+
+	bool gameLost = false;//flag that will show if an incorrect answer has been entered, resulting Game Over
+	const int numberSums = 15;
+	//sum of how much money will the user win after each round
+	int possibleEarnings[numberSums] = { 500, 1000, 2000, 3000, 5000, 7000, 10000, 20000, 30000, 50000, 70000, 100000, 250000, 500000, 1000000 };
+	do {
+
+		IDLookingGenerator(level, questionID);//creating ID to search for
 
 		int timesQuestionExists = 0;
-		SearchHowManyPossibleQuestions(nameOfFile, timesQuestionExists,questionID);
-		int numberOfSelectedQuestion = rand() % timesQuestionExists + 1;
-		PrintSelectedQuestion(nameOfFile, numberOfSelectedQuestion, questionID);
+		SearchHowManyPossibleQuestions(nameOfFile, timesQuestionExists, questionID);//finding how many questions for level are available
 
+		int numberOfSelectedQuestion = rand() % timesQuestionExists + 1;//creating a random number (from 1 to the number of max questions for level)
+																		//that will indicate when the program has "traveled" to this question
 
-	//}
+		PrintSelectedQuestion(nameOfFile, numberOfSelectedQuestion, questionID, level, gameLost);//printing question and answers
+		
+		if (!gameLost) {
+
+			PrintPassedQuestion(possibleEarnings, level);//pringting the prize for round
+			system("pause");//stopping the console so the message stays on, then after hitting a button, the game continues
+			system("cls");//clearing console
+		}
+		else {
+			PrintGameOver();//printing game over
+		}
+		level++;//level up
+
+	} while (level < 10 && gameLost == false);//contitions when the game is lost/ stops playing it
 }
-
 
 
 void NewGame() {
@@ -195,7 +274,7 @@ void NewGame() {
 	cout << "Enter your choice: ";
 
 	const int sizeOfString = 10;
-	char possibleChoices[sizeOfString] = { '1', '2', '3', '4', '5', '9'};
+	char possibleChoices[sizeOfString] = { '1', '2', '3', '4', '5', '9' };
 	char choice;
 	ValidInput(choice, possibleChoices, sizeOfString);
 
@@ -234,7 +313,11 @@ void MainMenu() {
 
 int main()
 {
+
+	//size of font - 24
+	//dimentions of console - 120x27, but console must be at least 120 wide
+
 	NewGame();
-	//StartNewGame;
+
 	return 0;
 }
