@@ -508,9 +508,9 @@ void PrintGameOver(int possibleEarnings[], int& level) {//printing game over
 		cout << "                                                       ";
 		cout << "You have won 1000$";
 	}
-	else if (level > 10 && level < 15) {
+	else if (level > 10 && level < 16) {
 		cout << "                                                       ";
-		cout << "You have won 1000$";
+		cout << "You have won 32000$";
 	}
 
 	Border();
@@ -519,7 +519,7 @@ void PrintGameOver(int possibleEarnings[], int& level) {//printing game over
 void StartNewGame(char nameOfFile[]) {
 	system("cls");//clearing console
 	srand(time(nullptr));//setting the seed, from which the randomiser will randomise
-	int level = 1;//levels(questions) from 1 to 15 (currently working with questions to 10)
+	int level = 15;//levels(questions) from 1 to 15 (currently working with questions to 10)
 
 	char questionID[6] = { 'I','D', ':', '\0', '\0' };//ID validation prototype
 
@@ -544,48 +544,50 @@ void StartNewGame(char nameOfFile[]) {
 		PrintSelectedQuestion(nameOfFile, numberOfSelectedQuestion, questionID, level, gameLost, fFjoker, audJoker, friendJoker);//printing question and answers
 		
 		if (!gameLost) {
+			if (level < 15) {
 
-			PrintPassedQuestion(possibleEarnings, level);//pringting the prize for round
-			cout << "\n                         ";
-			cout << "  Do you want to keep the money, and stop playing ?(type yes or no!)";
-			const int MESSAGE_SIZE = 4;
-			bool inCorrectValidation = false;
-			char continuingGame[MESSAGE_SIZE] = "yes";//giving the ability to continue the game or keep the money and leave
-			char endingGame[MESSAGE_SIZE] = "no!";
-			char yesNo[4] = {'\0'};
-			bool contGame = true;
-			do {
-				inCorrectValidation = false;
+				PrintPassedQuestion(possibleEarnings, level);//pringting the prize for round
+				cout << "\n                         ";
+				cout << "  Do you want to keep the money, and stop playing ?(type yes or no!)";
+				const int MESSAGE_SIZE = 4;
+				bool inCorrectValidation = false;
+				char continuingGame[MESSAGE_SIZE] = "yes";//giving the ability to continue the game or keep the money and leave
+				char endingGame[MESSAGE_SIZE] = "no!";
+				char yesNo[4] = { '\0' };
+				bool contGame = true;
+				do {
+					inCorrectValidation = false;
 
-				cin >> yesNo;//validation checking
-				ValidInputForWords(yesNo, endingGame, MESSAGE_SIZE, inCorrectValidation);
-				if (inCorrectValidation == true) {
-					ValidInputForWords(yesNo, continuingGame, MESSAGE_SIZE, inCorrectValidation);
+					cin >> yesNo;//validation checking
+					ValidInputForWords(yesNo, endingGame, MESSAGE_SIZE, inCorrectValidation);
 					if (inCorrectValidation == true) {
-						cout << "\n\n  Incorrect validation, please (type yes or no!)";
-					}
-					else {
-						contGame = true;
-						break;
-					}
+						ValidInputForWords(yesNo, continuingGame, MESSAGE_SIZE, inCorrectValidation);
+						if (inCorrectValidation == true) {
+							cout << "\n\n  Incorrect validation, please (type yes or no!)";
+						}
+						else {
+							contGame = true;
+							break;
+						}
 
+					}
+					contGame = true;
+					break;
+				} while (inCorrectValidation == false);
+				if (contGame == true) {
+					system("cls");//clearing console
 				}
-				contGame = true;
-				break;
-			} while (inCorrectValidation == false);
-			if (contGame == true) {
-				system("cls");//clearing console
-			}
-			else {
-				system("cls");//clearing console
-				cout << endl << endl << endl << endl << endl << endl;
-				Border();
-				cout << endl;
-				cout << "                               ";//keeping money and leaving game
-				cout << "You won " << possibleEarnings[level - 1]<< "$ in Who wants to be a millionaire, thanks for playing! ";
-				cout << endl;
-				Border();
-				break;
+				else {
+					system("cls");//clearing console
+					cout << endl << endl << endl << endl << endl << endl;
+					Border();
+					cout << endl;
+					cout << "                               ";//keeping money and leaving game
+					cout << "You won " << possibleEarnings[level - 1] << "$ in Who wants to be a millionaire, thanks for playing! ";
+					cout << endl;
+					Border();
+					break;
+				}
 			}
 		}
 		else {
@@ -593,9 +595,9 @@ void StartNewGame(char nameOfFile[]) {
 		}
 		level++;//level up
 
-	} while (level < 10 && gameLost == false);//contitions when the game is lost/ stops playing it
+	} while (level <= 15 && gameLost == false);//contitions when the game is lost/ stops playing it
 
-	if (level == 16) {
+	if (level == 16 && gameLost == false) {
 		cout << endl << endl << endl << endl << endl << endl;
 		Border();
 		cout << endl;
@@ -668,8 +670,6 @@ int main()
 	/*int level = 14;
 	char possibleAnswers[5] = { 'A', 'B', 'C', 'D' };
 	char correctAnswer = 'B';
-
-
 	AudienceHelpJoker(possibleAnswers, correctAnswer, level);*/
 	
 	NewGame();
