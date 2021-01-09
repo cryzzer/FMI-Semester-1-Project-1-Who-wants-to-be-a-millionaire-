@@ -23,7 +23,7 @@ void IDLookingGenerator(int level, char questionID[6]) {//creating the ID that t
 	}
 }
 
-void CopyStr(char originalString[], char copiedVersion[], int sizeCopiedArray, char stopCopyingAfter) {
+void CopyStr(char originalString[], char copiedVersion[]) {
 	int i = 0;
 	for (i = 0; originalString[i] != '\0'; i++) {//coppying the text, while the loop meets a terminating zero
 		copiedVersion[i] = originalString[i];
@@ -87,8 +87,17 @@ void SearchHowManyPossibleQuestions(char nameOfFile[], int& timesQuestionExists,
 	}
 	questionFile.close();//closing file
 }
+void FiftyFiftyJoker() {
 
-void PrintQuestionAndAnswers(char question[], char option1[], char option2[], char option3[], char option4[],
+}
+void AudienceHelpJoker() {
+
+}
+void CallFriendJoker() {
+
+}
+
+void PrintQuestionAndAnswers(char printingQuestionID[], char question[], char option1[], char option2[], char option3[], char option4[],
 	char correctAnswer, char possibleAnswers[], const int sizeOfAnswers, int& level, bool& gameLost) {
 
 	const int sizeOfConsoleRow = 120;//this will be the default size of the row of the console
@@ -116,6 +125,7 @@ void PrintQuestionAndAnswers(char question[], char option1[], char option2[], ch
 	char inputAnswer;
 	do {//if an incorrect choice is being validated, it resets the page, giving the user the ability to enter again, untill a valid choice is inputed
 		cout << endl << endl << endl << endl << endl << endl;
+		cout << "  " << printingQuestionID << endl;
 		Border();
 		cout << "\n  " << question << endl << endl;
 		cout << "  " << option1;
@@ -148,6 +158,8 @@ void PrintSelectedQuestion(char nameOfFile[], int numberOfSelectedQuestion, char
 
 	int currentNumberOfQuestion = 0;
 
+	char printingQuestionID[20] = { '\0' };//12 is the size of ID 
+
 	char question[sizeOfRow] = { '\0' };
 	char option1[sizeOfRow / 10] = { '\0' };
 	char option2[sizeOfRow / 10] = { '\0' };
@@ -177,21 +189,26 @@ void PrintSelectedQuestion(char nameOfFile[], int numberOfSelectedQuestion, char
 		//the question + possible answers + correct answer
 		if (currentNumberOfQuestion == numberOfSelectedQuestion) {
 
+			for (int i = 0; i < 12; i++) {
+				printingQuestionID[i] = gettingLine[i];
+			}
+			printingQuestionID[11] = '\0';//manual adding of ID of question, ready for print
+
 			questionFile.getline(gettingLine, sizeOfRow, '\n');//gettig question
-			CopyStr(gettingLine, question, sizeOfRow, '?');//coppying question
+			CopyStr(gettingLine, question);//coppying question
 
 			questionFile.getline(gettingLine, sizeOfRow, '\n');//getting option 1
-			CopyStr(gettingLine, option1, sizeOfRow, '\n');//coppying option 1, same goes for the other 3 options
+			CopyStr(gettingLine, option1);//coppying option 1, same goes for the other 3 options
 
 			questionFile.getline(gettingLine, sizeOfRow, '\n');
-			CopyStr(gettingLine, option2, sizeOfRow, '\n');
+			CopyStr(gettingLine, option2);
 
 			questionFile.getline(gettingLine, sizeOfRow, '\n');
-			CopyStr(gettingLine, option3, sizeOfRow, '\n');
+			CopyStr(gettingLine, option3);
 
 
 			questionFile.getline(gettingLine, sizeOfRow, '\n');
-			CopyStr(gettingLine, option4, sizeOfRow, '\n');
+			CopyStr(gettingLine, option4);
 
 			//since there is a new line between the 4th option and the correct answer, skip 1 line of the text
 			questionFile.getline(gettingLine, sizeOfRow, '\n');
@@ -203,7 +220,7 @@ void PrintSelectedQuestion(char nameOfFile[], int numberOfSelectedQuestion, char
 	}
 	int sizeOfAnswers = 5;
 	char possibleAnswers[5] = { 'A', 'B', 'C', 'D' };//adding valid choices to be compared with the input
-	PrintQuestionAndAnswers(question, option1, option2, option3, option4, correctAnswer, possibleAnswers, sizeOfAnswers, level, gameLost);
+	PrintQuestionAndAnswers(printingQuestionID,question, option1, option2, option3, option4, correctAnswer, possibleAnswers, sizeOfAnswers, level, gameLost);
 }
 void PrintPassedQuestion(int possibleEarnings[], int& level) {//printing won amount of money for round
 	cout << endl << endl << endl << endl << endl << endl;
