@@ -1,3 +1,18 @@
+/**
+*
+* Solution to course project # 1
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2020/2021
+*
+* @author Danail Nenkov
+* @idnumber 62518
+* @compiler VC
+*
+* <main file>
+*
+*/
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -293,7 +308,7 @@ void CallFriendJoker(char possibleAnswers[], char correctAnswer, int& level) {//
 }
 
 void PrintQuestionAndAnswers(char printingQuestionID[], char question[], char option1[], char option2[], char option3[], char option4[],
-	char correctAnswer, char possibleAnswers[], const int SIZE_OF_ANSWERS, int& level, bool& gameLost, bool& fFjoker, bool& audJoker, bool& friendJoker) {
+char correctAnswer, char possibleAnswers[], const int SIZE_OF_ANSWERS, int& level, bool& gameLost, bool& fFjoker, bool& audJoker, bool& friendJoker, char gameOverQuestion[]) {
 
 	const int SIZE_OF_CONSOLE_ROW = 120;//this will be the default size of the row of the console
 	int questionSize = StrLength(question);//finding the size of the question
@@ -447,9 +462,22 @@ void PrintQuestionAndAnswers(char printingQuestionID[], char question[], char op
 	}
 	else {
 		gameLost = true;//game over if answer isn't correct
+		if (option1[0] == correctAnswer) {
+			CopyStr(option1, gameOverQuestion);
+		}
+		else if (option2[0] == correctAnswer) {
+			CopyStr(option2, gameOverQuestion);
+		}
+		else if (option3[0] == correctAnswer) {
+			CopyStr(option3, gameOverQuestion);
+		}
+		else {
+			CopyStr(option4, gameOverQuestion);
+		}
 	}
 }
-void PrintSelectedQuestion(char nameOfFile[], int numberOfSelectedQuestion, char questionID[], int& level, bool& gameLost, bool& fFjoker, bool& audJoker, bool& friendJoker) {
+void PrintSelectedQuestion(char nameOfFile[], int numberOfSelectedQuestion, char questionID[], int& level, bool& gameLost, bool& fFjoker, bool& audJoker, bool& friendJoker,
+	char gameOverQuestion[]) {
 	const int SIZE_OF_ROW = 1000;//row equals line
 
 	ifstream questionFile(nameOfFile);  //opening file
@@ -523,7 +551,7 @@ void PrintSelectedQuestion(char nameOfFile[], int numberOfSelectedQuestion, char
 	int sizeOfAnswers = 5;
 	char possibleAnswers[5] = { 'A', 'B', 'C', 'D' };//adding valid choices to be compared with the input
 	PrintQuestionAndAnswers(printingQuestionID,question, option1, option2, option3, option4, correctAnswer, possibleAnswers, sizeOfAnswers, 
-		level, gameLost,fFjoker, audJoker, friendJoker);
+		level, gameLost,fFjoker, audJoker, friendJoker, gameOverQuestion);
 }
 void PrintPassedQuestion(int possibleEarnings[], int& level) {//printing won amount of money for round
 	NewLines(6);
@@ -532,15 +560,16 @@ void PrintPassedQuestion(int possibleEarnings[], int& level) {//printing won amo
 	cout << "                                      Congratulations, you won " << possibleEarnings[level - 1] << '$' << endl;//winning money after round
 	Border();
 }
-void PrintGameOver(int possibleEarnings[], int& level) {//printing game over
+void PrintGameOver(int possibleEarnings[], int& level, char gameOverQuestion[]) {//printing game over
 	NewLines(6);
 	Border();
 	cout << endl;//if user lost game, he wins an amount, after a certain level is passed
 	cout << "                                                      GAME OVER\n";
-	if (level < 5) {
+	cout << "                                          The correct answer was: " << gameOverQuestion << endl;// printing the correct answer
+	if (level <= 5) {
 		cout << "                                                 You have won 0$";
 	}
-	else if (level > 5 && level < 10) {
+	else if (level > 5 && level <= 10) {
 		cout << "                                                You have won 1000$";
 	}
 	else if (level > 10 && level < 16) {
@@ -550,7 +579,7 @@ void PrintGameOver(int possibleEarnings[], int& level) {//printing game over
 	Border();
 }
 
-void StartNewGame(char nameOfFile[]) {
+void StartNewGame(char nameOfFile[], bool randomTopic) {
 	system("cls");//clearing console
 	srand(time(nullptr));//setting the seed, from which the randomiser will randomise
 	int level = 1;//levels(questions) from 1 to 15 (currently working with questions to 10)
@@ -566,7 +595,31 @@ void StartNewGame(char nameOfFile[]) {
 	//sum of how much money will the user win after each round
 	int possibleEarnings[NUMBER_SUMS] = { 100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000 };
 	do {
-
+		if (randomTopic == true) {
+			char determZero[20] = { '\0' };
+			CopyStr(determZero, nameOfFile);
+			int randNumb = rand() % 5 + 1;
+			if (randNumb == 1) {
+				char topicName1[20] = "Life.txt";
+				CopyStr(topicName1, nameOfFile);
+			}
+			else if (randNumb == 2) {
+				char topicName2[20] = "History.txt";
+				CopyStr(topicName2, nameOfFile);
+			}
+			else if (randNumb == 3) {
+				char topicName3[20] = "Cinema.txt";
+				CopyStr(topicName3, nameOfFile);
+			}
+			else if (randNumb == 4) {
+				char topicName4[20] = "Sports.txt";
+				CopyStr(topicName4, nameOfFile);
+			}
+			else if (randNumb == 5) {
+				char topicName5[20] = "Politics.txt";
+				CopyStr(topicName5, nameOfFile);
+			}
+		}
 		IDLookingGenerator(level, questionID);//creating ID to search for
 
 		int timesQuestionExists = 0;
@@ -575,7 +628,9 @@ void StartNewGame(char nameOfFile[]) {
 		int numberOfSelectedQuestion = rand() % timesQuestionExists + 1;//creating a random number (from 1 to the number of max questions for level)
 																		//that will indicate when the program has "traveled" to this question
 
-		PrintSelectedQuestion(nameOfFile, numberOfSelectedQuestion, questionID, level, gameLost, fFjoker, audJoker, friendJoker);//printing question and answers
+		char gameOverQuestion[70] = { '\0' };
+
+		PrintSelectedQuestion(nameOfFile, numberOfSelectedQuestion, questionID, level, gameLost, fFjoker, audJoker, friendJoker, gameOverQuestion);//printing question and answers
 		
 		if (!gameLost) {
 			if (level < 15) {
@@ -624,7 +679,7 @@ void StartNewGame(char nameOfFile[]) {
 			}
 		}
 		else {
-			PrintGameOver(possibleEarnings, level);//printing game over
+			PrintGameOver(possibleEarnings, level, gameOverQuestion);//printing game over
 		}
 		level++;//level up
 
@@ -666,31 +721,43 @@ void NewGame() {
 	char choice;
 	ValidInput(choice, possibleChoices, SIZE_OF_STRING);
 
+	bool randomTopic = false;//adding option to choose all categories
+
 	if (choice == '1') {
 		char topic[20] = "Life.txt";
-		StartNewGame(topic);
+		randomTopic = false;
+		StartNewGame(topic, randomTopic);
 		return;
 	}
 	else if (choice == '2') {
 		char topic[20] = "History.txt";
-		StartNewGame(topic);
+		randomTopic = false;
+		StartNewGame(topic, randomTopic);
 		return;
 	}
 	else if (choice == '3') {
 		char topic[20] = "Cinema.txt";
-		StartNewGame(topic);
+		randomTopic = false;
+		StartNewGame(topic, randomTopic);
 		return;
 	}
 	else if (choice == '4') {
 		char topic[20] = "Sports.txt";
-		StartNewGame(topic);
+		randomTopic = false;
+		StartNewGame(topic, randomTopic);
 		return;
 	}
 	else if (choice == '5') {
 		char topic[20] = "Politics.txt";
+		randomTopic = false;
+		StartNewGame(topic, randomTopic);
+		return;
 	}
 	else if(choice == '9') {
-
+		randomTopic = true;
+		char topic[20] = { '\0' };
+		StartNewGame(topic, randomTopic);
+		return;
 	}
 	else {
 		system("cls");//clearing console
@@ -709,7 +776,7 @@ void SelectingCategory(char& choice, char choiceSelection[]) {
 	cout << "  0. For exiting and going back to the Main Menu\n";
 	Border();
 	cout << "\n\n  Please enter the number of your choice: ";
-	ValidInput(choice, choiceSelection, 10);
+	ValidInput(choice, choiceSelection, 10);//choosing topic
 }
 void SelectingDifficultyOfQuestion(int& diffChoise, int numberOfQuetionChoises[]) {
 	NewLines(6);
@@ -724,7 +791,7 @@ void SelectingDifficultyOfQuestion(int& diffChoise, int numberOfQuetionChoises[]
 	do {
 		cin >> diffChoise;
 		for (int i = 0; i < 15; i++) {
-			if (diffChoise != numberOfQuetionChoises[i]) {
+			if (diffChoise != numberOfQuetionChoises[i]) {//validation check
 				continue;
 			}
 			validValidChoice = true;
@@ -734,7 +801,7 @@ void SelectingDifficultyOfQuestion(int& diffChoise, int numberOfQuetionChoises[]
 
 }
 
-void QuestionCheckNewLine(char question[]) {
+void QuestionCheckNewLine(char question[]) {//checking if in the inserted new question somewhere is a symbol for new line, if yes turns it into empty space
 	int sizeQuestion = StrLength(question);
 	for (int i = 0; i < sizeQuestion; i++) {
 		if (question[i] == '\n') {
@@ -745,9 +812,9 @@ void QuestionCheckNewLine(char question[]) {
 
 void EnteringNewInfoIntoFile(char fileName[], char question[], char option1[], char option2[], char option3[], char option4[], char& correctAnswer,
 							char fullID[], int numberOfQuestion) {
-	ofstream NewQuestion(fileName, ios::app);//append
+	ofstream NewQuestion(fileName, ios::app);//append, starts the typing from the end of the file
 
-	NewQuestion << endl << fullID << endl;
+	NewQuestion << endl << fullID << endl;//inserting each string that has been saved
 	NewQuestion << numberOfQuestion << ". " << question << "?" << endl;
 	NewQuestion << "A) " << option1 << endl;
 	NewQuestion << "B) " << option2 << endl;
@@ -755,7 +822,7 @@ void EnteringNewInfoIntoFile(char fileName[], char question[], char option1[], c
 	NewQuestion << "D) " << option4 << endl << endl;
 	NewQuestion << correctAnswer << endl;
 
-	NewQuestion.close();
+	NewQuestion.close();//closing file
 }
 
 void PrintSuccessfulNewQuest() {
@@ -766,7 +833,7 @@ void PrintSuccessfulNewQuest() {
 	cout << endl;
 	Border();
 	cout << endl;
-	system("pause");
+	system("pause");//pausing console
 	system("cls");//clearing console
 }
 
@@ -778,7 +845,7 @@ void WritingNewQuestionAnswers(char question[], char option1[], char option2[], 
 	cout << endl;
 	Border();
 	cout << "\n  " << diffChoice << ". ";
-	if (cin.peek() == '\n') {//
+	if (cin.peek() == '\n') {//using this to catch the new line symbol from the buffer, thats caused because of previous validation of cin
 		cin.get();
 	}
 	cin.getline(question, 1000, '?');
@@ -860,16 +927,16 @@ void EnteringNewQuestion() {
 	system("cls");//clearing console
 
 	char questionID[6] = { 'I','D', ':', '\0', '\0' };//ID validation prototype
-	IDLookingGenerator(diffChoise, questionID);
+	IDLookingGenerator(diffChoise, questionID);//creating the front numbers
 
 	int timesQuestionExists = 0;
-	SearchHowManyPossibleQuestions(topic, timesQuestionExists, questionID);
+	SearchHowManyPossibleQuestions(topic, timesQuestionExists, questionID);//searching how many times there is a question with this number  example: 2.
 
 	char fullQuestionID[12] = { '\0' };
 	CopyStr(questionID, fullQuestionID);
-	int additionalQuestion = timesQuestionExists + 1;
+	int additionalQuestion = timesQuestionExists + 1;//the last 3 digits of the new question
 
-	FullIDCreatingGenerator(choice, additionalQuestion, fullQuestionID);
+	FullIDCreatingGenerator(choice, additionalQuestion, fullQuestionID);//creating the back numbers
 
 	char question[1005] = { '\0' };
 	char option1[105] = { '\0' };
@@ -878,19 +945,19 @@ void EnteringNewQuestion() {
 	char option4[105] = { '\0' };
 	char correctAnswer = '\0';
 
-	WritingNewQuestionAnswers(question, option1, option2, option3, option4, correctAnswer, diffChoise, fullQuestionID);
+	WritingNewQuestionAnswers(question, option1, option2, option3, option4, correctAnswer, diffChoise, fullQuestionID);//User enters the new question + answers
 
-	QuestionCheckNewLine(question);
+	QuestionCheckNewLine(question);//checking for new line
 
-	EnteringNewInfoIntoFile(topic, question, option1, option2, option3, option4, correctAnswer, fullQuestionID, diffChoise);
+	EnteringNewInfoIntoFile(topic, question, option1, option2, option3, option4, correctAnswer, fullQuestionID, diffChoise);//entering these statemets in the file
 
-	PrintSuccessfulNewQuest();
+	PrintSuccessfulNewQuest();//print that the new question has been successfull
 	return;
 }
 void EditingExistingQuestion() {
-
+	//to be continued...
 }
-void ThanksForPlaying() {
+void ThanksForPlaying() {//exiting message
 	NewLines(6);
 	Border();
 	cout << "\n\n                                         Thanks for playing, have a nice day !\n\n";
@@ -941,12 +1008,11 @@ int main()
 	RECT ConsoleRect;
 	GetWindowRect(console, &ConsoleRect);
 
-	MoveWindow(console, ConsoleRect.left, ConsoleRect.top, 1360, 700, TRUE);
+	MoveWindow(console, ConsoleRect.left, ConsoleRect.top, 1360, 700, TRUE);//setting the dimentions of the console
 	//size of font - 24
-	//dimentions of console - 120x27, but console must be at least 120 wide
+	//dimentions of console - 120x27, but console must be at least 120 wide and 27 high
 
 	MainMenu();
-
 
 	return 0;
 }
