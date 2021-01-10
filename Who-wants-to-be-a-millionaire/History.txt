@@ -7,7 +7,8 @@ D) Imprunement
 
 B 
 
-easy. While Louis XIV was known as "The Sun King", all these were nicknames af later French kings named Louis, except for which?
+ID:01-02002
+1. While Louis XIV was known as "The Sun King", all these were nicknames af later French kings named Louis, except for which?
 A) The Well-Beloved
 B) The Restorer of French Liberty
 C) The Desired
@@ -15,7 +16,8 @@ D) Skeeter
 
 D
 
-easy. Of all letters, that make up the numbers on a standard Roman numeral clock face, which letter appears the most times?
+ID:02-02001
+2. Of all letters, that make up the numbers on a standard Roman numeral clock face, which letter appears the most times?
 A) I
 B) V
 C) X
@@ -23,7 +25,8 @@ D) L
 
 A
 
-medium. Frequently appearing in news headlines in 2016, what does the word "Brexit" refer to ?
+ID:02-02002
+2. Frequently appearing in news headlines in 2016, what does the word "Brexit" refer to ?
 A) A new weight-loss drug
 B) A European political issue
 C) An app foe ending romances
@@ -31,7 +34,8 @@ D) The first deliverless car
 
 B
 
-What information was recorded in the DomesDayBook?
+ID:03-02001
+3. What information was recorded in the DomesDayBook?
 A) Prisoners in gaol
 B) Property ownership
 C) A set of laws
@@ -39,7 +43,8 @@ D) Birthdays
 
 B
 
-What was the main objective of the 1945 Postdam conference?
+ID:03-02002
+3. What was the main objective of the 1945 Postdam conference?
 A) Agree a post-war settlement
 B) Force a German surrender
 C) To argue about buiscuits
@@ -47,7 +52,8 @@ D) To spread communism
 
 A
 
-Which country controlled Vietnam before the Japaneese occupied it during World War Two?
+ID:04-02001
+4. Which country controlled Vietnam before the Japaneese occupied it during World War Two?
 A) China
 B) USA
 C) France
@@ -55,7 +61,8 @@ D) UK
 
 C
 
-Wich important position did Walter UlBricht hold in 1960?
+ID:04-02002
+4. Which important position did Walter UlBricht hold in 1960?
 A) Mayor of West Berlin
 B) President of the U.S. Senate
 C) East German Leader
@@ -63,7 +70,8 @@ D) Trout Fisherman of the Year
 
 C
 
-Which English king began the Hundred Year's War?
+ID:05-02001
+5. Which English king began the Hundred Year's War?
 A) Edward I
 B) Edward III
 C) Henry III
@@ -71,7 +79,8 @@ D) Henry VIII
 
 B
 
-What was the final outcome of the Second Boer War 1899-1902?
+ID:05-02002
+5. What was the final outcome of the Second Boer War 1899-1902?
 A) The Union of South Africa
 B) The extinction of the dodo
 C) Independance for Transvaal
@@ -79,7 +88,8 @@ D) The end of British rule
 
 A
 
-Which law made Elizabeth I Supreme Governor of the Church of England?
+ID:06-02001
+6. Which law made Elizabeth I Supreme Governor of the Church of England?
 A) The Act of Uniformity
 B) The Final Act
 C) The Anglican Act
@@ -87,4 +97,173 @@ D) The Act of Supremacy
 
 D
 
- 
+ID:06-02002
+6. Two of Henry VIII's six wives were executed. Anne Boleyn was one. Who was the second?
+A) Katherine Parr
+B) Jane Seymour
+C) Catherine Howard
+D) Lady Jane Grey
+
+C
+
+ID:07-02001
+7. Who had his head chopped off in 1649?
+A) James I
+B) James II
+C) Charles I
+D) Charles II
+
+C
+
+ID:07-02002
+7. When was William Shakespeare born?
+A) 1554
+B) 1564
+C) 1574
+D) 1584
+
+B
+
+ID:08-02001
+8. The Merry Wives of... ?
+A) Wandsworth
+B) Wycombe
+C) Walberswick
+D) Windsor
+
+D
+
+ID:08-02002
+8. Approximately how long ago was Stonehenge built?
+A) 10,000 years
+B)  7,000 years
+C) 5,000 years
+D) 3,000 years
+
+C
+
+ID:09-02001
+9. Who was English king at the time of the battle of Hastings?
+A) Harold I
+B) Harold II
+C) Harold III
+D) Edward the Confessor
+
+B
+
+ID:09-02002
+9. It did not help the English army that it had just fought a battle before Hastings. That battle is now the name of a football ground. And no, Baverstock, I don't know why. Is it …
+A) Stamford Bridge
+B) Boleyn Ground
+C) Bramall Lane
+D) The Ricoh Arena
+
+A
+
+ID:10-02001
+10. How many years did the 30 Years War last?
+A) 28
+B) 29
+C) 13
+D) 30
+
+D
+
+ID:10-02002
+10. When did the French revolution begin?
+A) 1719
+B) 1739
+C) 1769
+D) 1789
+
+D
+
+ID:11-02001
+11. Hereward the ...
+A) Wolf
+B) Westrel 
+C) Wake
+D) Watchful
+
+C
+
+ID:11-02002
+11. Where did Cnut come from?
+A) Norway
+B) Denmark
+C) Sweden
+D) Finland
+
+B
+
+ID:12-02001
+12. Who won the battle of Bannockburn in 1314?
+A) England
+B) Scotland
+C) France
+D) Spain
+
+B
+
+ID:12-02002
+12. Who won the battle of Flodden Field in 1513?
+A) England
+B) Scotland
+C) France
+D) Spain
+
+A
+
+ID:13-02001
+13. Who won the battle of Pinkie Cleugh in 1603?
+A) England
+B) Scotland
+C) France
+D) None of the above
+
+D
+
+ID:13-02002
+13. How old was William Pitt the Younger when he became prime minister?
+A) 24
+B) 25
+C) 26
+D) 27
+
+A
+
+ID:14-02001
+14. Who was Britain's longest serving PM?
+A) The Earl of Liverpool
+B) The Marquess of Salisbury
+C) Robert Walpole
+D) Margaret Thatcher
+
+C
+
+ID:14-02002
+14. Who was the ringleader of the Gunpowder Plot of 1605?
+A) Guy Fawkes
+B) Thomas Wintour
+C) Sir Everard Digby
+D) Robert Catesby
+
+D
+
+ID:15-02001
+15. When was Bulgaria created?
+A) 861 year
+B) 685 year
+C) 865 year
+D) 681 year
+
+D
+
+ID:15-02002
+15. When did World War 1 start?
+A) 28th of July 1914 y.
+B) 11th of November 1914 y.
+C) 1st of April 1918 y.
+D) 28th of April 1914 y.
+
+A

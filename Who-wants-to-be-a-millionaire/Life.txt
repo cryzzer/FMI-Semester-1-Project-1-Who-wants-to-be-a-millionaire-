@@ -268,10 +268,11 @@ D) 92
 
 C
 
+ID:01-01003
+1. What worldwide campaingn encourages students to spend a little time studying HTML, CSS and SQL, among other related topics?
+A) European History Week
+B) Biology Day
+C) Hour of Code
+D) 15 minutes of Money Scence
 
-
-
-
-
-
-
+C

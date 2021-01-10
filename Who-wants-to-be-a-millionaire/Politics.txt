@@ -1,4 +1,5 @@
-(easy).The hammer and sickle is one of the most recognisable symbols of which political ideology?
+ID:01-05001
+1.The hammer and sickle is one of the most recognisable symbols of which political ideology?
 
 A) Republicanism
 B) Communism
@@ -7,23 +8,26 @@ D) Liberalism
 
 B
 
-(easy). Which of these is not an official department of the U.S. government?
+ID:01-05002
+1. Which of these is not an official department of the U.S. government?
 A) Treasury
 B) Justice
 C) Integrity
 D) Defence
 
-easy. On election day 2016, many americans honored Susan B. Anthony's legacy by affixing stickers to her tombstone that said what?
+A
+
+ID:02-05001
+2. On election day 2016, many americans honored Susan B. Anthony's legacy by affixing stickers to her tombstone that said what?
 A) "Dont text and drive"
 B) "I voted"
 C) "Say 'No' to drugs"
 D) "Save the polar bears"
 
-
-
 C
 
-medium. If Vladimir Putin asks for poutine, he wants what country's speciality of french fries covered in gravy and cheese curds?
+ID:02-05002
+2. If Vladimir Putin asks for poutine, he wants what country's speciality of french fries covered in gravy and cheese curds?
 A) Morocco
 B) Canada
 C) Haiti
@@ -31,10 +35,236 @@ D) Belgium
 
 B
 
-medium. Which of the following is 2,922 days long?
+ID:03-05001
+3. Which of the following is 2,922 days long?
 A) The time between Summer Olympics
 B) Teenage years
 C) Two full U.S presidental terms
 D) Time between U.S. censuses
 
 C
+
+ID:03-05002
+3. The Statue of Liberty was originally supposed to function as what?
+A) A port of entry
+B) A border marker
+C) A gift shop
+D) A lighthouse
+
+D
+
+ID:04-05001
+4. Out of these European countries, which has the smallest population density?
+A) Bulgaria
+B) Norway
+C) Iceland
+D) France
+
+C
+
+ID:04-05002
+4. Which of theses U.S.Presidents appeared on the television series "Laugh-In"?
+A) Lyndon Johnson
+B) Richard Nixon
+C) Jimmy Carter
+D) Gerald Ford
+
+B
+
+ID:05-05001
+5. Who was Secretary-General of the United Nations on January 1st 2000?
+A) Antonio Guterres
+B) Mr. Ban Ki-moon
+C) Boutros Boutros-Ghali 
+D) Kofi Annan
+
+D
+
+ID:05-05002
+5. In 1930, who became the first non-American to be named Man of the Year by TIME magazine?
+A) Joseph Stalin
+B) Albert Einstein
+C) Mahatma Gandhi
+D) Haile Selassie
+
+C
+
+ID:06-05001
+6. The diplomat Ferdinand de Lesseps was a key figure in the construction of what?
+A) Brandenburg Gate
+B) Suez Canal
+C) Eiffel Tower
+D) HSt. Gotthard Pass
+
+B
+
+ID:06-05002
+6. Prime Minister Tony Blair was born in which country?
+A) England
+B) Nothern Ireland
+C) Scotland
+D) Wales
+
+C
+
+ID:07-05001
+7. Milhous was the middle name of which U.S. President?
+A) Johnson
+B) Kennedy
+C) Roosevelt
+D) Nixon
+
+D
+
+ID:07-05002
+7. There has never been a U.S. President whose last name has either started or ended with which of the following letters?
+A) D
+B) P
+C) Y
+D) I
+
+D
+
+ID:08-05001
+8. Though now associated with Barack Obama, who used the actual word "change" more than any other president in his inaugural address?
+A) Theodore Roosevelt
+B) John Kennedy
+C) Lyndon Johnson
+D) George Bush
+
+C
+
+ID:08-05002
+8. Only a handful of U.S. Presidents have had names where their first initial is the same as their last. How many of them have come after Calvin Coolidge?
+A) None
+B) One
+C) Two
+D) Three
+
+C
+
+ID:09-05001
+9. Who was the first U.S. President to be elected who was born in the 20th century?
+A) Dwight Eisenhower
+B) Franklin Roosevelt
+C) Harry Truman
+D) John Kennedy
+
+D
+
+ID:09-05002
+9. Margarita Popova was the Vice President to which Bulgarian President?
+A) Georgy Parvanov
+B) Rosen Plevneliev
+C) Jelio Jelev
+D) Rumen Radev
+
+B
+
+ID:10-05001
+10. Which symbol appears on the national flag  of India?
+A) Bird
+B) Wheel
+C) Star
+D) Mountain
+
+B
+
+ID:10-05002
+10. In the U.S. Declaration of Independence, which of the folowing is NOT one of the reasons the colonists cite for breaking free of King Georges rule?  
+A) He obstructed justice
+B) He imposed taxes without consent
+C) He dissolved Representative Houses
+D) He chewed with his mouth open
+
+D
+
+ID:11-05001
+11. What year was the United States Declaration of Independence signed?
+A) 1776
+B) 1815
+C) 1870
+D) 1693
+
+A
+
+ID:11-05002
+11. What year was the Neuilly Peace Treaty signed?
+A) 1890
+B) 1912
+C) 1919
+D) 1944
+
+C
+
+ID:12-05001
+12. At just 37 years of age, Jasinda Ardern became the youngest female world leader in the late 2017 when she was elected Prime Minister of what?
+A) Ireland
+B) Israel
+C) South Africa
+D) New Zealend
+
+D
+
+ID:12-05002
+12. What Angela Dorothea Merkel is?
+A) President of Germany
+B) Chancellor of Germany
+C) Prime Minister of Germany
+D) Vice President of Germany
+
+B
+
+ID:13-05001
+13. How many US presidents have there been?
+A) 45
+B) 37
+C) 52
+D) 61
+
+A
+
+ID:13-05002
+13. What was the UK's first referendum on?
+A) Alternative Vote referendum
+B) Brexit
+C) Joining the European Economic Community
+D) European Union membership referendum
+
+C
+
+ID:14-05001
+14. To the nearest percentage point, how many people who voted chose Brexit?
+A) 52 percent
+B) 58 percent
+C) 63 percent
+D) 71 percent
+
+A
+
+ID:14-05002
+14. How many former British Prime Ministers are still alive?
+A) Nine
+B) Eleven
+C) Six
+D) Four
+
+C
+
+ID:15-05001
+15. Who became the first serving US President to appear on television during a 1939 broadcast from the World's Fair?
+A) Dwight Eisenhower
+B) Franklin Roosevelt
+C) Harry Truman
+D) John Kennedy
+
+B
+
+ID:15-05002
+15. What is Boris Johnson’s real first name?
+A) Philip
+B) Michael
+C) George
+D) Alexander
+
+D

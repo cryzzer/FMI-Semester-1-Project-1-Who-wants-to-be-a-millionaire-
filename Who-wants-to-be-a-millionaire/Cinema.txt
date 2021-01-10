@@ -1,4 +1,5 @@
-easy. Which toys have been marketed with the phrase “robots in disguise”?
+ID:01-03001
+1. Which toys have been marketed with the phrase "robots in disguise"?
 A) Bratz Dolls
 B) Sylvanian Families
 C) Hatchimals
@@ -6,7 +7,8 @@ D) Transformers
 
 D
 
-easy.According to their longtime nickname, what kind of "duo" are Batman & Robin?
+ID:01-03002
+1.According to their longtime nickname, what kind of "duo" are Batman & Robin?
 A) Dangerous
 B) Dynamic
 C) Dynasitc
@@ -14,7 +16,8 @@ D) Delirious
 
 B
 
-easy. What TV show had one of its most-watched episodes when Brithey Spears guest-starred as a receptionist who got flirty with Barney?
+ID:02-03001
+2. What TV show had one of its most-watched episodes when Brithey Spears guest-starred as a receptionist who got flirty with Barney?
 A) Two Broke Girls
 B) Parks and Recreation
 C) The Bing Bang Theory
@@ -22,7 +25,8 @@ D) How I Met Your Mother
 
 D
 
-easy. Calling it "dumb", "stupid" and "stinky", a 1990s PSA featuring the cast of "Saved By the Bell" proclaimed, "There's no hope with" what ?
+ID:02-03002
+2. Calling it "dumb", "stupid" and "stinky", a 1990s PSA featuring the cast of "Saved By the Bell" proclaimed, "There's no hope with" what ?
 A) Taupe
 B) Dope
 C) Soap
@@ -30,7 +34,8 @@ D) A jackalope
 
 B
 
-easy. When it was released in Israel, the movie "Cloudy with a Chance of MeatBalls" was given a Hebrew title meaning "It's Eaining" what ?
+ID:03-03001
+3. When it was released in Israel, the movie "Cloudy with a Chance of MeatBalls" was given a Hebrew title meaning "It's Eaining" what ?
 A) Falafel
 B) Gnocchi
 C) Souffles
@@ -38,7 +43,8 @@ D) Kung Pao chicken
 
 A
 
-easy. The name of what annual high school event, when former graduates often visit, can be found in the title of the 2017 Spider-Man movie?
+ID:03-03002
+3. The name of what annual high school event, when former graduates often visit, can be found in the title of the 2017 Spider-Man movie?
 A) Detention
 B) Homecoming
 C) Recess
@@ -46,7 +52,8 @@ D) Spelling bee
 
 B
 
-medium. With each movie earning over $2 billion worldwide, who has directed the two highest-grossing films of all time ?
+ID:04-03001
+4. With each movie earning over $2 billion worldwide, who has directed the two highest-grossing films of all time ?
 A) Peter Jackson
 B) George Lucas
 C) James Cameron
@@ -54,7 +61,8 @@ D) Steven Spielberg
 
 C
 
-medium. Originally calling it "Starbeast", Dan O'Bannon changed the title of his most famous screenplay to what, liking it because "it's a noun and its's an adjective"?
+ID:04-03002
+4. Originally calling it "Starbeast", Dan O'Bannon changed the title of his most famous screenplay to what, liking it because "it's a noun and its's an adjective"?
 A) The Matrix
 B) Alien
 C) Gravity
@@ -62,7 +70,8 @@ D) The Terminator
 
 B
 
-hard. When "Star Wars" was released in 1977, what was the first sentence in the famous "opening crawl" ?
+ID:05-03001
+5. When "Star Wars" was released in 1977, what was the first sentence in the famous "opening crawl" ?
 A) The galaxy is in peril.
 B) It is a period of civil war.
 C) A darkness is encroaching.
@@ -70,7 +79,8 @@ D) An evil empire spreads.
 
 B
 
-The Imitation Game is a biopic based on which twentieth century figure?
+ID:05-03002
+5. The Imitation Game is a biopic based on which twentieth century figure?
 A) Alan Turing
 B) Frank Abagnale
 C) Charles Ponzi
@@ -78,7 +88,8 @@ D) Ozi Osborne
 
 A
 
-How many times has steven SpielBerg been nominated for an Oscar for directing?
+ID:06-03001
+6. How many times has steven SpielBerg been nominated for an Oscar for directing?
 A) 6
 B) 7
 C) 8
@@ -86,7 +97,8 @@ D) 9
 
 B
 
-Stanley Kubrick's 1971 version of 'A Clockwork Orange' is a British cult classic. But who wrote the novel?
+ID:06-03002
+6. Stanley Kubrick's 1971 version of 'A Clockwork Orange' is a British cult classic. But who wrote the novel?
 A) George Orwell
 B) Anthony Burgess
 C) Joseph Heller
@@ -94,7 +106,8 @@ D) John Steinbeck
 
 B
 
-What is the highest grossing box office film of all time?
+ID:07-03001
+7. What is the highest grossing box office film of all time?
 A) Avatar
 B) Titanic
 C) Avengers: Endgame
@@ -102,7 +115,8 @@ D) John Wick
 
 C
 
-How many James Bond films have there been?
+ID:07-03002
+7. How many James Bond films have there been?
 A) 26
 B) 27
 C) 28
@@ -110,7 +124,8 @@ D) 29
 
 A
 
-What planet are Transformers from?
+ID:08-03001
+8. What planet are Transformers from?
 A) Cybertron
 B) Paradron
 C) Gigatron
@@ -118,7 +133,8 @@ D) Megatron
 
 A
 
-Which film is this quote from: "I will count to three, there will be no four."?
+ID:08-03002
+8. Which film is this quote from: "I will count to three, there will be no four."?
 A) Batman Forever
 B) Terminator 2: Judgement Day
 C) Men in Black
@@ -126,7 +142,8 @@ D) Die Hard
 
 D
 
-Who does Tom Cruise play in Top Gun?
+ID:09-03001
+9. Who does Tom Cruise play in Top Gun?
 A) Ethan Hunt
 B) Ray Ferrier
 C) Wolfman
@@ -134,14 +151,119 @@ D) Maveric
 
 D
 
+ID:09-03002
+9. What was the first cinematographic genre?
+A) Black and White movies
+B) Motion pictures without sound
+C) Charlie Chaplin's movies
+D) Hollywood Golden Age Movies
 
+B
 
+ID:10-03001
+10. When did the history of film begin?
+A) In the 1900's
+B) In the 1890's
+C) In the 1910's
+D) After the first World War
 
+B
 
+ID:10-03002
+10. What was the main reason why Cary Grant was denied roles into films?
+A) His huge neck
+B) His sexuality
+C) His accent
+D) The fact that he was too handsome
 
+A
 
+ID:11-03001
+11. Who was the main character in the 2007 movie 300?
+A) King Xerxes
+B) King Leonidas
+C) Dilos the Narrator
+D) Astinos
 
+B
 
+ID:11-03002
+11. Who directed the Godfather I, in 1972?
+A) Martin Scorsese
+B) Nicholas Cage
+C) Francis Ford Coppola
+D) Oliver Stone
 
+C
 
+ID:12-03001
+12. Which famous Hollywood actor died of Aids in 1985?
+A) Arthur Ashe
+B) Freddie Mercury
+C) Anthony Perkins
+D) Rock Huddson
 
+D
+
+ID:12-03002
+12. Which movie was considered as the late Whitney Houston's debut in movies?
+A) Waiting to exhale
+B) The Bodyguard
+C) The Preacher's wife
+D) Cinderella
+
+B
+
+ID:13-03001
+13. What movie won an Academy award for best picture in 2011?
+A) Moneyball
+B) The Artist
+C) The Descendants
+D) The Tourist
+
+B
+
+ID:13-03002
+13. What movie recounts the hardship endured by Jesus of Nazareth?
+A) Risen
+B) the Righteous Judge
+C) The Passion of Christ
+D) King of Egypt
+
+C
+
+ID:14-03001
+14. Which famous actor played the leading role in the 2004 Oliver stone's film "Alexander"?
+A) Jared Leto
+B) Colin Farrell
+C) Anthony Hopkins
+D) Angelina Jolie
+
+B
+
+ID:14-03002
+14. What type of portkey was used to transport Harry and the rest to the Quidditch World Cup?
+A) Tin Can
+B) Steel Bucket
+C) Old Boot
+D) Rubber Tyre
+
+C
+
+ID:15-03001
+15. How many years did the Weasleys from Harry Potter have Scabbers as a pet rat?
+A) 10
+B) 12
+C) 14
+D) 16
+
+B
+
+ID:15-03002
+15. Which magical act is the word "splinching" associated with?
+A) Potion Making
+B) Apparition
+C) Quidditch
+D) Transfiguration
+
+B
