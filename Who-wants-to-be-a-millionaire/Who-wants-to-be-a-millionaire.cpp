@@ -48,7 +48,7 @@ void IDLookingGenerator(int level, char questionID[6]) {//creating the ID that t
 		questionID[4] = numberOfID;
 	}
 }
-void FullIDCreatingGenerator(int topicChoice,int number, char fullQuestionID[]) {	//creating the ID that the program will look for only for back numbers
+void FullIDCreatingGenerator(int topicChoice, int number, char fullQuestionID[]) {	//creating the ID that the program will look for only for back numbers
 	fullQuestionID[5] = '-';
 	fullQuestionID[6] = '0';
 	fullQuestionID[7] = topicChoice;
@@ -190,57 +190,57 @@ void FiftyFiftyJoker(char correctAnswer, char option1[], char option2[], char op
 	} while (randomNumber2 == storage[0] || randomNumber2 == skipNumber);//doing the same as the first number, but checks if it does not match with the 1st one
 
 	switch (randomNumber1) {//this is the part, where the selected options to be removed are turned into empty spaces
-		case 1:
-			FillingEmptySpace(option1, sizeOption1);
-			if (randomNumber2 == 2) {
-				FillingEmptySpace(option2, sizeOption2);
-			}
-			else if (randomNumber2 == 3) {
-				FillingEmptySpace(option3, sizeOption3);
-			}
-			else if (randomNumber2 == 4) {
-				FillingEmptySpace(option4, sizeOption4);
-			}
-			break;
-		case 2:
+	case 1:
+		FillingEmptySpace(option1, sizeOption1);
+		if (randomNumber2 == 2) {
 			FillingEmptySpace(option2, sizeOption2);
-			if (randomNumber2 == 1) {
-				FillingEmptySpace(option1, sizeOption1);
-			}
-			else if (randomNumber2 == 3) {
-				FillingEmptySpace(option3, sizeOption3);
-			}
-			else if (randomNumber2 == 4) {
-				FillingEmptySpace(option4, sizeOption4);
-			}
-			break;
-		case 3:
+		}
+		else if (randomNumber2 == 3) {
 			FillingEmptySpace(option3, sizeOption3);
-			if (randomNumber2 == 1) {
-				FillingEmptySpace(option1, sizeOption1);
-			}
-			else if (randomNumber2 == 2) {
-				FillingEmptySpace(option2, sizeOption2);
-			}
-			else if (randomNumber2 == 4) {
-				FillingEmptySpace(option4, sizeOption4);
-			}
-			break;
-		case 4:
+		}
+		else if (randomNumber2 == 4) {
 			FillingEmptySpace(option4, sizeOption4);
-			if (randomNumber2 == 1) {
-				FillingEmptySpace(option1, sizeOption1);
-			}
-			else if (randomNumber2 == 2) {
-				FillingEmptySpace(option2, sizeOption2);
-			}
-			else if (randomNumber2 == 3) {
-				FillingEmptySpace(option3, sizeOption3);
-			}
-			break;
+		}
+		break;
+	case 2:
+		FillingEmptySpace(option2, sizeOption2);
+		if (randomNumber2 == 1) {
+			FillingEmptySpace(option1, sizeOption1);
+		}
+		else if (randomNumber2 == 3) {
+			FillingEmptySpace(option3, sizeOption3);
+		}
+		else if (randomNumber2 == 4) {
+			FillingEmptySpace(option4, sizeOption4);
+		}
+		break;
+	case 3:
+		FillingEmptySpace(option3, sizeOption3);
+		if (randomNumber2 == 1) {
+			FillingEmptySpace(option1, sizeOption1);
+		}
+		else if (randomNumber2 == 2) {
+			FillingEmptySpace(option2, sizeOption2);
+		}
+		else if (randomNumber2 == 4) {
+			FillingEmptySpace(option4, sizeOption4);
+		}
+		break;
+	case 4:
+		FillingEmptySpace(option4, sizeOption4);
+		if (randomNumber2 == 1) {
+			FillingEmptySpace(option1, sizeOption1);
+		}
+		else if (randomNumber2 == 2) {
+			FillingEmptySpace(option2, sizeOption2);
+		}
+		else if (randomNumber2 == 3) {
+			FillingEmptySpace(option3, sizeOption3);
+		}
+		break;
 	}
 }
-void AudienceHelpJoker(char possibleAnswers[],char correctAnswer, int& level) {
+void AudienceHelpJoker(char possibleAnswers[], char correctAnswer, int& level) {
 	srand(time(nullptr));//setting the seed, from which the randomiser will randomise
 	int currentMaxPercentage = 100;//this is equal to 100%
 	int percentChanceofLying = 0;//getting the percantage of lying
@@ -271,7 +271,7 @@ void AudienceHelpJoker(char possibleAnswers[],char correctAnswer, int& level) {
 			optionOneToFour = rand() % 4 + 0;
 		} while (optionOneToFour == indexOfCorrectAnswer);
 		cout << "\n  The audiece has decided! They think that the correct answer is " << possibleAnswers[optionOneToFour] << endl;
-	}	
+	}
 }
 void CallFriendJoker(char possibleAnswers[], char correctAnswer, int& level) {//basicly the same function as help from the audience, but with different prints
 	srand(time(nullptr));//setting the seed, from which the randomiser will randomise
@@ -307,9 +307,7 @@ void CallFriendJoker(char possibleAnswers[], char correctAnswer, int& level) {//
 	}
 }
 
-void PrintQuestionAndAnswers(char printingQuestionID[], char question[], char option1[], char option2[], char option3[], char option4[],
-char correctAnswer, char possibleAnswers[], const int SIZE_OF_ANSWERS, int& level, bool& gameLost, bool& fFjoker, bool& audJoker, bool& friendJoker, char gameOverQuestion[]) {
-
+void ProperNewLineToString(char question[]) {
 	const int SIZE_OF_CONSOLE_ROW = 120;//this will be the default size of the row of the console
 	int questionSize = StrLength(question);//finding the size of the question
 
@@ -328,6 +326,31 @@ char correctAnswer, char possibleAnswers[], const int SIZE_OF_ANSWERS, int& leve
 		question[startElementToCopy + 1] = ' ';
 		question[startElementToCopy + 2] = ' ';
 	}
+}
+
+void PrintQuestionAndAnswers(char printingQuestionID[], char question[], char option1[], char option2[], char option3[], char option4[],
+	char correctAnswer, char possibleAnswers[], const int SIZE_OF_ANSWERS, int& level, bool& gameLost, bool& fFjoker, bool& audJoker, bool& friendJoker, char gameOverQuestion[]) {
+
+	//const int SIZE_OF_CONSOLE_ROW = 120;//this will be the default size of the row of the console
+	//int questionSize = StrLength(question);//finding the size of the question
+	//
+	////if the size is more than 116(which is where the double lines end), this part of the code finds where is the last position,
+	////where there isn't a latin letter, and starts copying the rest of the elements from his right side 2 steps over,
+	////then rewrites the found position to a new line, and the second two elements after him to 2 space bars
+	//if (questionSize > (SIZE_OF_CONSOLE_ROW - 4)) {
+	//	int startElementToCopy = SIZE_OF_CONSOLE_ROW - 4;
+	//	for (startElementToCopy = SIZE_OF_CONSOLE_ROW - 4; ((question[startElementToCopy] <= 'Z' && question[startElementToCopy] >= 'A') ||
+	//		(question[startElementToCopy] <= 'z' && question[startElementToCopy] >= 'a')); startElementToCopy--) {
+	//	}
+	//	for (int currentPosOfElement = questionSize; currentPosOfElement > startElementToCopy; currentPosOfElement--) {
+	//		question[currentPosOfElement + 2] = question[currentPosOfElement];
+	//	}
+	//	question[startElementToCopy] = '\n';
+	//	question[startElementToCopy + 1] = ' ';
+	//	question[startElementToCopy + 2] = ' ';
+	//}
+
+	ProperNewLineToString(question);
 
 	int option1Size = StrLength(option1);//using this to center the options
 	int option3Size = StrLength(option3);
@@ -335,9 +358,7 @@ char correctAnswer, char possibleAnswers[], const int SIZE_OF_ANSWERS, int& leve
 	char inputAnswer = '\0';
 
 	const int MESSAGE_SIZE = 4;//the size of message yes or no!
-	char usingJoker[MESSAGE_SIZE] = "yes";//creating available options to be chosen
-	char notUsingJoker[MESSAGE_SIZE] = "no!";
-	char inputChoiceIfJoker[MESSAGE_SIZE] = { '\0' };
+	char inputChoiceIfJoker = '\0' ;
 	bool AskUsingJoker = true;//asks if the user wants to use joker
 	bool showingAvailableJokers = false;
 
@@ -350,8 +371,9 @@ char correctAnswer, char possibleAnswers[], const int SIZE_OF_ANSWERS, int& leve
 
 	bool AudienceHelp = false;//activating help
 	bool FriendHelp = false;//activating help
+	bool incorrectValidation = false;
 	do {//if an incorrect choice is being validated, it resets the page, giving the user the ability to enter again, untill a valid choice is inputed
-		bool incorrectValidation = false;
+
 
 
 		NewLines(6);
@@ -360,7 +382,7 @@ char correctAnswer, char possibleAnswers[], const int SIZE_OF_ANSWERS, int& leve
 		cout << "\n  " << question << endl << endl;
 		cout << "  " << option1;
 		EmptySpaces(60 - option1Size);//how many empty spaces there will be so B) and D) are in one line
-		cout  << option2 << endl;
+		cout << option2 << endl;
 		cout << "  " << option3;
 		EmptySpaces(60 - option3Size);
 		cout << option4 << endl;//not working properly
@@ -375,21 +397,26 @@ char correctAnswer, char possibleAnswers[], const int SIZE_OF_ANSWERS, int& leve
 
 		Border();
 		if (AskUsingJoker == true) {
-			cout << "  Do you want to use a joker? (type: 'yes' or 'no!')";
-			cin >> inputChoiceIfJoker;
-			ValidInputForWords(inputChoiceIfJoker, notUsingJoker, MESSAGE_SIZE, incorrectValidation);//checking if the user said no!
-			showingAvailableJokers = false;//disabling jockers for round
+			cout << "  Do you want to use a joker? (type: 'y' for yes or 'n' for no)";
 			if (incorrectValidation == true) {
-				incorrectValidation = false;
+				cout << "  \n  Please enter a valid input(y/n)";
+			}
+			cin >> inputChoiceIfJoker;
 
-				ValidInputForWords(inputChoiceIfJoker, usingJoker, MESSAGE_SIZE, incorrectValidation);//checking if the user said yes
-				showingAvailableJokers = true;
-				if (incorrectValidation == true) {//looping back to enter a valid choice
-					system("cls");//clearing console
-					continue;
-				}
+			if ((inputChoiceIfJoker != 'y') && (inputChoiceIfJoker != 'n')) {//checking if the user said no!
+				incorrectValidation = true;
+				system("cls");//clearing console
+				continue;
 			}
 			else {
+				incorrectValidation = false;
+			}
+
+			if (inputChoiceIfJoker == 'y') {
+				showingAvailableJokers = true;
+			}
+			else if (inputChoiceIfJoker == 'n') {
+				showingAvailableJokers = false;//disabling jockers for round
 				AskUsingJoker = false;//disabling jockers for round
 				system("cls");//clearing console
 				continue;
@@ -455,7 +482,7 @@ char correctAnswer, char possibleAnswers[], const int SIZE_OF_ANSWERS, int& leve
 		cout << "  Your answer (" << possibleAnswers[0] << ", " << possibleAnswers[1] << ", " << possibleAnswers[2] << " or " << possibleAnswers[3] << "): ";
 		cin >> inputAnswer;
 		system("cls");//clearing console
-	} while (inputAnswer!=possibleAnswers[0] && inputAnswer != possibleAnswers[1] && inputAnswer != possibleAnswers[2] && inputAnswer != possibleAnswers[3]);
+	} while (inputAnswer != possibleAnswers[0] && inputAnswer != possibleAnswers[1] && inputAnswer != possibleAnswers[2] && inputAnswer != possibleAnswers[3]);
 
 	//ValidInput(inputAnswer, possibleAnswers, sizeOfAnswers);
 	if (inputAnswer == correctAnswer) {
@@ -550,8 +577,8 @@ void PrintSelectedQuestion(char nameOfFile[], int numberOfSelectedQuestion, char
 	}
 	int sizeOfAnswers = 5;
 	char possibleAnswers[5] = { 'A', 'B', 'C', 'D' };//adding valid choices to be compared with the input
-	PrintQuestionAndAnswers(printingQuestionID,question, option1, option2, option3, option4, correctAnswer, possibleAnswers, sizeOfAnswers, 
-		level, gameLost,fFjoker, audJoker, friendJoker, gameOverQuestion);
+	PrintQuestionAndAnswers(printingQuestionID, question, option1, option2, option3, option4, correctAnswer, possibleAnswers, sizeOfAnswers,
+		level, gameLost, fFjoker, audJoker, friendJoker, gameOverQuestion);
 }
 void PrintPassedQuestion(int possibleEarnings[], int& level) {//printing won amount of money for round
 	NewLines(6);
@@ -631,43 +658,27 @@ void StartNewGame(char nameOfFile[], bool randomTopic) {
 		char gameOverQuestion[70] = { '\0' };
 
 		PrintSelectedQuestion(nameOfFile, numberOfSelectedQuestion, questionID, level, gameLost, fFjoker, audJoker, friendJoker, gameOverQuestion);//printing question and answers
-		
+
 		if (!gameLost) {
 			if (level < 15) {
 
-				PrintPassedQuestion(possibleEarnings, level);//pringting the prize for round
-				cout << "\n                          Do you want to keep the money, and stop playing ?(type 'yes' or 'no!')";
-				const int MESSAGE_SIZE = 4;
 				bool inCorrectValidation = false;
-				char continuingGame[MESSAGE_SIZE] = "yes";//giving the ability to continue the game or keep the money and leave
-				char endingGame[MESSAGE_SIZE] = "no!";
-				char yesNo[4] = { '\0' };
+				char yesNo =  '\0';
 				bool contGame = true;
-				do {
-					inCorrectValidation = false;
 
-					cin >> yesNo;//validation checking
-					ValidInputForWords(yesNo, endingGame, MESSAGE_SIZE, inCorrectValidation);
-					if (inCorrectValidation == true) {
-						inCorrectValidation = false;
-						ValidInputForWords(yesNo, continuingGame, MESSAGE_SIZE, inCorrectValidation);
-						if (inCorrectValidation == true) {
-							cout << "\n\n                                  Incorrect validation, please (type 'yes' or 'no!')";
-							continue;
-						}
-						else {
-							contGame = false;
-							break;
-						}
+				PrintPassedQuestion(possibleEarnings, level);//pringting the prize for round
+				cout << "\n                     Do you want to keep the money, and stop playing ?(type 'y' for yes or 'n' for no)";
+				
 
-					}
-					contGame = true;
-					break;
-				} while (inCorrectValidation == true);
-				if (contGame == true) {
+				cin >> yesNo;
+				while (yesNo != 'y' && yesNo != 'n') {
 					system("cls");//clearing console
+					PrintPassedQuestion(possibleEarnings, level);//pringting the prize for round
+					cout << "\n                     Do you want to keep the money, and stop playing ?(type 'y' for yes or 'n' for no)";
+					cout << "\n\n                                  Incorrect validation, please type (y/n)";
+					cin >> yesNo;
 				}
-				else {
+				if (yesNo == 'y') {
 					system("cls");//clearing console
 					NewLines(6);
 					cout << "  ========================================== Who wants to be a millionaire? ==========================================\n\n";
@@ -675,6 +686,9 @@ void StartNewGame(char nameOfFile[], bool randomTopic) {
 					cout << endl;//keeping money and leaving game
 					Border();
 					break;
+				}
+				else if (yesNo == 'n') {
+					system("cls");//clearing console
 				}
 			}
 		}
@@ -753,7 +767,7 @@ void NewGame() {
 		StartNewGame(topic, randomTopic);
 		return;
 	}
-	else if(choice == '9') {
+	else if (choice == '9') {
 		randomTopic = true;
 		char topic[20] = { '\0' };
 		StartNewGame(topic, randomTopic);
@@ -811,7 +825,7 @@ void QuestionCheckNewLine(char question[]) {//checking if in the inserted new qu
 }
 
 void EnteringNewInfoIntoFile(char fileName[], char question[], char option1[], char option2[], char option3[], char option4[], char& correctAnswer,
-							char fullID[], int numberOfQuestion) {
+	char fullID[], int numberOfQuestion) {
 	ofstream NewQuestion(fileName, ios::app);//append, starts the typing from the end of the file
 
 	NewQuestion << endl << fullID << endl;//inserting each string that has been saved
@@ -838,7 +852,7 @@ void PrintSuccessfulNewQuest() {
 }
 
 void WritingNewQuestionAnswers(char question[], char option1[], char option2[], char option3[], char option4[], char& correctAnswer,
-								int& diffChoice, char fullQuestionID[]) {
+	int& diffChoice, char fullQuestionID[]) {
 	NewLines(6);
 	cout << "  ========================================== Who wants to be a millionaire? ==========================================\n\n";
 	cout << "  Please write your question below:  (please dont foget to add '?' at the end)\n  (question can hold up to 1000 symbols)\n";
@@ -894,7 +908,7 @@ void EnteringNewQuestion() {
 	char choiceSelection[10] = { '1', '2', '3', '4', '5', '0' };
 
 	SelectingCategory(choice, choiceSelection);
-	char topic[20] = {'\0'};
+	char topic[20] = { '\0' };
 	if (choice == '1') {
 		char topic1[20] = "Life.txt";
 		CopyStr(topic1, topic);
@@ -920,9 +934,9 @@ void EnteringNewQuestion() {
 		return;
 	}
 	system("cls");//clearing console
-	
+
 	int diffChoise = 0;
-	int numberOfQuetionChoises[20] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+	int numberOfQuetionChoises[20] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
 	SelectingDifficultyOfQuestion(diffChoise, numberOfQuetionChoises);
 	system("cls");//clearing console
 
@@ -954,9 +968,158 @@ void EnteringNewQuestion() {
 	PrintSuccessfulNewQuest();//print that the new question has been successfull
 	return;
 }
-void EditingExistingQuestion() {
-	//to be continued...
+//void SearchHowManyPossibleQuestions(char nameOfFile[], int& timesQuestionExists, char questionID[]) {
+//	ifstream questionFile(nameOfFile);  //opening file
+//	char printingString[6] = { '\0' }; //creating an char array, that will compare later
+//	const int SIZE_OF_ROW = 1000;
+//	char gettingLine[SIZE_OF_ROW];
+//	while (questionFile.getline(gettingLine, SIZE_OF_ROW)) {//getting the whole line
+//		for (int i = 0; i < 6; i++) {
+//			printingString[i] = gettingLine[i];//rewriting the first 5 simbols to a new char array
+//		}
+//		printingString[5] = '\0';//adding manual terminating zero to the last element
+//
+//		bool isSame = true;//creating a flag that will signal if the arrays are equal(the IDs)
+//		for (int i = 0; i < 5; i++) {
+//			if (printingString[i] != questionID[i]) {
+//				isSame = false;
+//				break;
+//			}
+//		}
+//		if (isSame) {
+//			timesQuestionExists++;//giving the integer +1 to its value
+//		}
+//	}
+//	questionFile.close();//closing file
+//}
+
+void SearchIDInFiles(char searchQuestID[], char detZero[], char fileName[], bool& questionExists) {
+
+	for (int i = 1; i <= 5; i++) {
+		CopyStr(detZero, fileName);
+		if (i == 1) {
+			char verName[20] = "Life.txt";
+			CopyStr(verName, fileName);
+		}
+		else if (i == 2) {
+			char verName[20] = "History.txt";
+			CopyStr(verName, fileName);
+		}
+		else if (i == 3) {
+			char verName[20] = "Cinema.txt";
+			CopyStr(verName, fileName);
+		}
+		else if (i == 4) {
+			char verName[20] = "Sports.txt";
+			CopyStr(verName, fileName);
+		}
+		else {
+			char verName[20] = "Politics.txt";
+			CopyStr(verName, fileName);
+		}
+
+		fstream editFile(fileName);//dont forget to close file
+		const int ID_SIZE = 12;
+		char possibleID[ID_SIZE] = { '\0' };
+
+		const int SIZE_OF_ROW = 1000;
+		char currentLine[SIZE_OF_ROW];
+
+		while (editFile.getline(currentLine, SIZE_OF_ROW)) {
+			for (int j = 0; j < 11; j++) {
+				if (searchQuestID[j] == currentLine[j]) {
+					questionExists = true;
+					continue;
+				}
+				else {
+					questionExists = false;
+					break;
+				}
+			}
+			if (questionExists == false) {
+				continue;
+			}
+			else {
+				editFile.getline(currentLine, SIZE_OF_ROW);
+				char ynOption = { '\0' };
+				ProperNewLineToString(currentLine);
+				system("cls");//clearing console
+				NewLines(6);
+				cout << "  ========================================== Who wants to be a millionaire? ==========================================\n\n";
+				cout << "  " << searchQuestID;
+				NewLines(2);
+				cout << "  " << currentLine << endl;
+				Border();
+				NewLines(1);
+				cout << "  Is this the question that you want to edit ? (please type 'y' for yes or 'n' for no)";
+				cin >> ynOption;
+				while (ynOption != 'y' && ynOption != 'n') {
+					cin >> ynOption;
+				}
+				if (ynOption == 'n') {
+					editFile.close();
+					system("cls");//clearing console
+					return;
+				}
+			}
+		}
+		if (questionExists == false) {
+			editFile.close();
+			continue;
+		}
+
+	}
+	if (questionExists == false) {
+		system("cls");//clearing console
+		NewLines(6);
+		cout << "  ========================================== Who wants to be a millionaire? ==========================================\n\n";
+		cout << "                                It appears that a question with this ID does not exists,\n";
+		cout << "                                      please press any key to return to previous menu!\n";
+		Border();
+		cout << "                                         ";
+		system("pause");
+		system("cls");//clearing console
+	}
 }
+void AskForID(char searchQuestID[], char exitSymbol, char fileName[]) {
+	char detZero[20] = { '\0' };
+
+	bool questionExists = false;
+	
+	questionExists = false;
+
+	CopyStr(detZero, searchQuestID);
+	NewLines(6);
+	cout << "  ========================================== Who wants to be a millionaire? ==========================================\n\n";
+	cout << "  Please insert the ID of the question that you want to edit: ID:XX-YYZZZ\n";
+	cout << "  XX stands for number of question (1-15)\n";
+	cout << "  YY stands for topic of question: (1 - Life; 2 - History; 3 - Cinema; 4 - Sports; 5 - Politics\n";
+	cout << "  ZZZ stands for number of recurring question\n\n";
+	cout << "  Example: ID:01-01001\n\n";
+	cout << "  Enter 0 to return to Main Menu:\n";
+	Border();
+	cout << "\n  Enter ID of question or '0': ";
+	cin >> searchQuestID;
+	if ((searchQuestID[0] == exitSymbol) && (searchQuestID[1] == '\0')) {
+		system("cls");//clearing console
+		return;
+	}
+	SearchIDInFiles(searchQuestID, detZero, fileName, questionExists);
+}
+void EditingExistingQuestion() {
+	char searchQuestID[20] = { '\0' };
+	char exitSymbol = '0';
+	char fileName[20] = { '\0' };
+
+	do {
+		AskForID(searchQuestID, exitSymbol, fileName);
+		if ((searchQuestID[0] == exitSymbol) && (searchQuestID[1] == '\0')) {
+			return;
+		}
+	} while (searchQuestID[0] != exitSymbol);
+	
+}
+
 void ThanksForPlaying() {//exiting message
 	NewLines(6);
 	Border();
@@ -978,7 +1141,7 @@ void MainMenu() {
 
 		cout << "\n                                                   Enter your choice: ";
 
-		
+
 		char possibleChoices[10] = { '1', '2', '3', '0' };
 		ValidInput(choice, possibleChoices, 10);
 		if (choice == '1') {
@@ -999,7 +1162,7 @@ void MainMenu() {
 		}
 
 	} while (choice != '0');
-	
+
 }
 
 int main()
