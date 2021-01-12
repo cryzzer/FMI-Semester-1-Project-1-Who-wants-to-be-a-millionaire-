@@ -19,8 +19,10 @@
 #include <time.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <vector>
 
 using namespace std;
+
 
 char LevelFromIntToChar(int level) {//turning level number into number of ID    example: ID:01
 	return '0' + level;
@@ -122,6 +124,18 @@ void ValidInputForWords(char enteringWord[], char possibleWord[], int MessageSiz
 			break;
 		}
 	}
+}
+
+void AddAdditonalCharacters(char OGstring[],int& OGlength, char addstr1[]) {
+	int additionalLength1 = StrLength(addstr1);
+	for (int i = OGlength - 1; i >= 0; i--) {//coppying all elemtnts 'i' positions forward, so new characters can be swapped in the begining
+		OGstring[i + additionalLength1] = OGstring[i];
+	}
+	
+	for (int i = 0; addstr1[i] != '\0'; i++) {//coppying the text, while the loop meets a terminating zero
+		OGstring[i] = addstr1[i];
+	}
+	OGlength = StrLength(OGstring);
 }
 
 void SearchHowManyPossibleQuestions(char nameOfFile[], int& timesQuestionExists, char questionID[]) {
@@ -330,25 +344,6 @@ void ProperNewLineToString(char question[]) {
 
 void PrintQuestionAndAnswers(char printingQuestionID[], char question[], char option1[], char option2[], char option3[], char option4[],
 	char correctAnswer, char possibleAnswers[], const int SIZE_OF_ANSWERS, int& level, bool& gameLost, bool& fFjoker, bool& audJoker, bool& friendJoker, char gameOverQuestion[]) {
-
-	//const int SIZE_OF_CONSOLE_ROW = 120;//this will be the default size of the row of the console
-	//int questionSize = StrLength(question);//finding the size of the question
-	//
-	////if the size is more than 116(which is where the double lines end), this part of the code finds where is the last position,
-	////where there isn't a latin letter, and starts copying the rest of the elements from his right side 2 steps over,
-	////then rewrites the found position to a new line, and the second two elements after him to 2 space bars
-	//if (questionSize > (SIZE_OF_CONSOLE_ROW - 4)) {
-	//	int startElementToCopy = SIZE_OF_CONSOLE_ROW - 4;
-	//	for (startElementToCopy = SIZE_OF_CONSOLE_ROW - 4; ((question[startElementToCopy] <= 'Z' && question[startElementToCopy] >= 'A') ||
-	//		(question[startElementToCopy] <= 'z' && question[startElementToCopy] >= 'a')); startElementToCopy--) {
-	//	}
-	//	for (int currentPosOfElement = questionSize; currentPosOfElement > startElementToCopy; currentPosOfElement--) {
-	//		question[currentPosOfElement + 2] = question[currentPosOfElement];
-	//	}
-	//	question[startElementToCopy] = '\n';
-	//	question[startElementToCopy + 1] = ' ';
-	//	question[startElementToCopy + 2] = ' ';
-	//}
 
 	ProperNewLineToString(question);
 
@@ -883,6 +878,8 @@ void WritingNewQuestionAnswers(char question[], char option1[], char option2[], 
 	cout << "  " << "D) ";
 	cin.getline(option4, 100, '\n');
 
+
+
 	system("cls");//clearing console
 
 	NewLines(6);
@@ -968,34 +965,19 @@ void EnteringNewQuestion() {
 	PrintSuccessfulNewQuest();//print that the new question has been successfull
 	return;
 }
-//void SearchHowManyPossibleQuestions(char nameOfFile[], int& timesQuestionExists, char questionID[]) {
-//	ifstream questionFile(nameOfFile);  //opening file
-//	char printingString[6] = { '\0' }; //creating an char array, that will compare later
-//	const int SIZE_OF_ROW = 1000;
-//	char gettingLine[SIZE_OF_ROW];
-//	while (questionFile.getline(gettingLine, SIZE_OF_ROW)) {//getting the whole line
-//		for (int i = 0; i < 6; i++) {
-//			printingString[i] = gettingLine[i];//rewriting the first 5 simbols to a new char array
-//		}
-//		printingString[5] = '\0';//adding manual terminating zero to the last element
-//
-//		bool isSame = true;//creating a flag that will signal if the arrays are equal(the IDs)
-//		for (int i = 0; i < 5; i++) {
-//			if (printingString[i] != questionID[i]) {
-//				isSame = false;
-//				break;
-//			}
-//		}
-//		if (isSame) {
-//			timesQuestionExists++;//giving the integer +1 to its value
-//		}
-//	}
-//	questionFile.close();//closing file
-//}
 
 void SearchIDInFiles(char searchQuestID[], char detZero[], char fileName[], bool& questionExists) {
 
-	for (int i = 1; i <= 5; i++) {
+	char newQuestion[1000] = { '\0' };//declaring qestion and answers
+	char newOption1[100] = { '\0' };
+	char newOption2[100] = { '\0' };
+	char newOption3[100] = { '\0' };
+	char newOption4[100] = { '\0' };
+	char newCorrectAnswer = '\0';
+
+	vector<string> editQuestionFile;//declaring a vectro, wehere we will store the information and will change the question and answers
+
+	for (int i = 1; i <= 5; i++) {//going through all the files, because if the ID doesn't contain in one file, it may contain in another
 		CopyStr(detZero, fileName);
 		if (i == 1) {
 			char verName[20] = "Life.txt";
@@ -1017,32 +999,32 @@ void SearchIDInFiles(char searchQuestID[], char detZero[], char fileName[], bool
 			char verName[20] = "Politics.txt";
 			CopyStr(verName, fileName);
 		}
-
-		fstream editFile(fileName);//dont forget to close file
+		int lineCounter = 0;//checking on which line we want to enter new question and answers
+		ifstream editFile(fileName);//dont forget to close file
 		const int ID_SIZE = 12;
 		char possibleID[ID_SIZE] = { '\0' };
 
 		const int SIZE_OF_ROW = 1000;
-		char currentLine[SIZE_OF_ROW];
-
+		char currentLine[SIZE_OF_ROW];//declaring char array, where we will drag the information from each line
 		while (editFile.getline(currentLine, SIZE_OF_ROW)) {
-			for (int j = 0; j < 11; j++) {
+			lineCounter++;//adding counter
+			for (int j = 0; j < 11; j++) {//if the ID's are equal, change the flag that this question exists
 				if (searchQuestID[j] == currentLine[j]) {
 					questionExists = true;
 					continue;
 				}
 				else {
-					questionExists = false;
+					questionExists = false;//if any of the symbols does not match, break the loop, continue with the next one and start the inner loop again
 					break;
 				}
 			}
-			if (questionExists == false) {
+			if (questionExists == false) {//if any of the symbols does not match, break the loop, continue with the next one and start the inner loop again
 				continue;
 			}
-			else {
+			else {//if this question exists, print the question and ask user if that's the question that he wants to edit
 				editFile.getline(currentLine, SIZE_OF_ROW);
 				char ynOption = { '\0' };
-				ProperNewLineToString(currentLine);
+				ProperNewLineToString(currentLine);//adding manually new line when a word is about to break between 2 lines
 				system("cls");//clearing console
 				NewLines(6);
 				cout << "  ========================================== Who wants to be a millionaire? ==========================================\n\n";
@@ -1056,20 +1038,102 @@ void SearchIDInFiles(char searchQuestID[], char detZero[], char fileName[], bool
 				while (ynOption != 'y' && ynOption != 'n') {
 					cin >> ynOption;
 				}
-				if (ynOption == 'n') {
+				if (ynOption == 'n') {//if answer is no, return to previous menu
 					editFile.close();
 					system("cls");//clearing console
 					return;
 				}
+				else if (ynOption == 'y') {//if yes turn the first digits of id into int
+					system("cls");//clearing console
+					int NumberQuestion = 0;
+					//turn the first digits of id into int
+					if (searchQuestID[3] == '0') {
+						NumberQuestion = searchQuestID[4] - '0';
+					}
+					else {
+						int afterNumber = searchQuestID[4] - '0';
+						NumberQuestion = searchQuestID[3] - '0';
+						NumberQuestion = (NumberQuestion * 10) + afterNumber;
+					}
+					//ask user to writhe question + 4 options + correct answer
+					WritingNewQuestionAnswers(newQuestion, newOption1, newOption2, newOption3, newOption4, newCorrectAnswer, NumberQuestion, searchQuestID);
+					QuestionCheckNewLine(newQuestion);//check if there is a new line, if yes, swap it for empty space
+					int newQestLength = StrLength(newQuestion);//getting lengths string of all strings
+					int newOpt1Length = StrLength(newOption1);
+					int newOpt2Length = StrLength(newOption2);
+					int newOpt3Length = StrLength(newOption3);
+					int newOpt4Length = StrLength(newOption4);
+
+					//add manually the number of question before actual question, depending if the number is a 2 digit or 1 digit
+					if (searchQuestID[3] == '0') {
+						char newLinequest[4] = "";
+						char addNumberQuest[5] = "X. ";
+						addNumberQuest[0] = searchQuestID[4];
+						AddAdditonalCharacters(newQuestion, newQestLength, addNumberQuest);
+					}
+					else{
+						char addNumberQuest[6] = "XX. ";
+						addNumberQuest[0] = searchQuestID[3];
+						addNumberQuest[1] = searchQuestID[4];
+						AddAdditonalCharacters(newQuestion, newQestLength, addNumberQuest);
+					}
+					//adding options to availabe options ( A)  )
+					char nOpt1[5] = "A) ";
+					AddAdditonalCharacters(newOption1, newOpt1Length, nOpt1);
+					char nOpt2[5] = "B) ";
+					AddAdditonalCharacters(newOption2, newOpt2Length, nOpt2);
+					char nOpt3[5] = "C) ";
+					AddAdditonalCharacters(newOption3, newOpt3Length, nOpt3);
+					char nOpt4[5] = "D) ";
+					AddAdditonalCharacters(newOption4, newOpt4Length, nOpt4);
+
+					editFile.close();//break the loop and close file
+					break;
+
+				}
 			}
-		}
-		if (questionExists == false) {
+		}		
+		if (questionExists == false) {//if the ID doesn't match with any other, close the current file and move to the next one
 			editFile.close();
 			continue;
 		}
+		fstream changeFileInfo(fileName);//opening again
 
+		while (changeFileInfo.getline(currentLine, SIZE_OF_ROW)) {//writing information into string vector
+			editQuestionFile.push_back(currentLine);
+		}
+
+		//manually change question + answers
+		editQuestionFile[lineCounter] = newQuestion;
+		editQuestionFile[lineCounter + 1] = newOption1;
+		editQuestionFile[lineCounter + 2] = newOption2;
+		editQuestionFile[lineCounter + 3] = newOption3;
+		editQuestionFile[lineCounter + 4] = newOption4;
+		editQuestionFile[lineCounter + 6] = newCorrectAnswer;//here skip 1 line, because this line is empty and move to the next one (6)
+
+		changeFileInfo.close();//close file
+
+		ofstream clearFileInfo;//open file again
+		clearFileInfo.open(fileName,ofstream::out | ofstream::trunc);//delete all previous data in file
+
+		for (int j = 0; j < editQuestionFile.size(); j++) {//add new, edited data in file
+			clearFileInfo << editQuestionFile[j] << endl;
+		}
+
+		clearFileInfo.close();//close file
+		//printing successfull editing
+		system("cls");//clearing console
+		NewLines(6);
+		cout << "  ========================================== Who wants to be a millionaire? ==========================================\n\n";
+		cout << "                                      You have successfully edited the question!\n";
+		cout << "                                   please press any key to return to previous menu!\n";
+		Border();
+		cout << "                                         ";
+		system("pause");
+		system("cls");//clearing console
+		return;
 	}
-	if (questionExists == false) {
+	if (questionExists == false) {//if there wasn't a ID that's contained in the files print that a question with this ID does not exists
 		system("cls");//clearing console
 		NewLines(6);
 		cout << "  ========================================== Who wants to be a millionaire? ==========================================\n\n";
@@ -1082,13 +1146,13 @@ void SearchIDInFiles(char searchQuestID[], char detZero[], char fileName[], bool
 	}
 }
 void AskForID(char searchQuestID[], char exitSymbol, char fileName[]) {
-	char detZero[20] = { '\0' };
+	char detZero[20] = { '\0' };//array which is used to fill another array with det. zeros
 
-	bool questionExists = false;
-	
+	bool questionExists = false;//flag if question exists
+
 	questionExists = false;
 
-	CopyStr(detZero, searchQuestID);
+	CopyStr(detZero, searchQuestID);//filling array with det. zeros
 	NewLines(6);
 	cout << "  ========================================== Who wants to be a millionaire? ==========================================\n\n";
 	cout << "  Please insert the ID of the question that you want to edit: ID:XX-YYZZZ\n";
@@ -1100,20 +1164,20 @@ void AskForID(char searchQuestID[], char exitSymbol, char fileName[]) {
 	Border();
 	cout << "\n  Enter ID of question or '0': ";
 	cin >> searchQuestID;
-	if ((searchQuestID[0] == exitSymbol) && (searchQuestID[1] == '\0')) {
+	if ((searchQuestID[0] == exitSymbol) && (searchQuestID[1] == '\0')) {//check if 0 is input, return to previous menu
 		system("cls");//clearing console
 		return;
 	}
-	SearchIDInFiles(searchQuestID, detZero, fileName, questionExists);
+	SearchIDInFiles(searchQuestID, detZero, fileName, questionExists);//searching for entered ID
 }
 void EditingExistingQuestion() {
 	char searchQuestID[20] = { '\0' };
-	char exitSymbol = '0';
+	char exitSymbol = '0';//entering this symbol when you want to leave menu
 	char fileName[20] = { '\0' };
 
 	do {
 		AskForID(searchQuestID, exitSymbol, fileName);
-		if ((searchQuestID[0] == exitSymbol) && (searchQuestID[1] == '\0')) {
+		if ((searchQuestID[0] == exitSymbol) && (searchQuestID[1] == '\0')) {//asking over and over again
 			return;
 		}
 	} while (searchQuestID[0] != exitSymbol);
@@ -1160,7 +1224,6 @@ void MainMenu() {
 			system("cls");//clearing console
 			ThanksForPlaying();
 		}
-
 	} while (choice != '0');
 
 }
@@ -1174,8 +1237,7 @@ int main()
 	MoveWindow(console, ConsoleRect.left, ConsoleRect.top, 1360, 700, TRUE);//setting the dimentions of the console
 	//size of font - 24
 	//dimentions of console - 120x27, but console must be at least 120 wide and 27 high
-
+	
 	MainMenu();
-
 	return 0;
 }
