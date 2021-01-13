@@ -3,6 +3,10 @@
 Hello, and welcome to my first project in FMI!
 I am going to briefly explain how the game works and the rules!
 
+Please, before you start the game, make sure that the fornt of your words is 24 ! 
+If it is not 24, make it 24 and close the console and then open it again!
+For maximum player experience, dont change the size of the console!
+
 1. When you enter each menu, there is an option to go back to the previous menu, and an option to close the 
 game from the main menu!
 
@@ -33,7 +37,8 @@ completing level 10, same goes to level 10 and level 15, after winning , you wil
 
 10. If you choose the option to add new question, please add a serious question and follow the steps!
 
-11. Editing existing question isn't working for the moment
+11. If you choose the option to edit existing question, please remember the ID of your desired question to edit,
+and when program asks you to enter the ID, please don't forget to type 'ID:' before the actual digits of ID!
 
 12. Have fun!
 
