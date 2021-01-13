@@ -3,7 +3,7 @@
 Hello, and welcome to my first project in FMI!
 I am going to briefly explain how the game works and the rules!
 
-Please, before you start the game, make sure that the fornt of your words is 24 ! 
+Please, before you start the game, make sure that the font of your words is 24 ! 
 If it is not 24, make it 24 and close the console and then open it again!
 For maximum player experience, dont change the size of the console!
 
